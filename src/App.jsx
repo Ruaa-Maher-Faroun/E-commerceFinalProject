@@ -2,7 +2,7 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import LoginPage from './pages/user/loginPage/LoginPage'
 import RegisterPage from './pages/user/registerPage/RegisterPage'
-import AuthLayout from './layouts/authLayout'
+import AuthLayout from './layouts/AuthLayout'
 import { ToastContainer } from 'react-toastify';
 
 export default function App() {
