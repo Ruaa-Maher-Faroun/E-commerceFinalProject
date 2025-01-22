@@ -19,12 +19,13 @@ export default function LoginPage() {
   const loginUser = async (data) => {
     setIsLoading(true);
     try{
-      const response = await axios.post("URL",data);
+      const response = await axios.post("https://ecommerce-node4.onrender.com/auth/signin",data);
       console.log(response);
       
-      if(response.status === 201){
-        navigate("/login");
-        toast.info('Please check your email to confirm your registration', {
+      if(response.status === 200){
+        localStorage.setItem("userToken",response.data.token)
+        navigate("/");
+        toast.success('Logged in', {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,

@@ -17,7 +17,7 @@ export default function RegisterPage() {
   const registerUser = async (data) => {
     setIsLoading(true);
     try{
-      const response = await axios.post("URL",data);
+      const response = await axios.post("https://ecommerce-node4.onrender.com/auth/signup",data);
       console.log(response);
       
       if(response.status === 201){
