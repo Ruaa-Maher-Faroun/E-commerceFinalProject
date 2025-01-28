@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import { DevTool } from "@hookform/devtools";
 import axios from 'axios';
 import { Bounce, toast } from 'react-toastify';
 import {  useNavigate } from 'react-router-dom';
@@ -15,7 +14,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState(null);
   const navigate = useNavigate();
-  const {register,control, handleSubmit,formState:{errors}} = useForm();
+  const {register, handleSubmit,formState:{errors}} = useForm();
   const loginUser = async (data) => {
     setIsLoading(true);
     try{
@@ -88,7 +87,7 @@ export default function LoginPage() {
         {errors.password?<div className=' text-danger'>{errors.password.message}</div>:null}
         </FloatingLabel>
         <Button variant="primary" type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</Button>
-          <DevTool control={control} /> 
+         
 
       </Form>
             </Row>

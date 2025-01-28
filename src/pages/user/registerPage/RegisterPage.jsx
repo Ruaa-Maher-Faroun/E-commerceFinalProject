@@ -95,8 +95,7 @@ export default function RegisterPage() {
         {errors.password?<div className=' text-danger'>{errors.password.message}</div>:null}
         </FloatingLabel>
         <Button variant="primary" type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Register"}</Button>
-          <DevTool control={control} /> 
-
+          
       </Form>
             </Row>
           </Container>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function dashboardLayout() {
+export default function DashboardLayout() {
   return (
     <div>
       
