@@ -10,6 +10,7 @@ import UserLayout from './layouts/userLayout'
 import Categories from './pages/user/categories/Categories'
 import Products from './pages/user/products/Products'
 import CategoryProducts from './components/user/categoryProducts/CategoryProducts'
+import ShowCategories from './components/user/showCategories/ShowCategories'
 
 export default function App() {
   const router = createBrowserRouter([
@@ -41,11 +42,19 @@ export default function App() {
       {
         path:"/categories",
         element: <Categories />,
-      },
+        children:[{
+          path:"",
+          element: <ShowCategories />,
+        },
       {
-        path:'/categories/:categoryId',
+        path:'category/:categoryId',
         element: <CategoryProducts />
+      }]
       },
+      // {
+      //   path:'/categories/:categoryId',
+      //   element: <CategoryProducts />
+      // },
       {
         path:"/products",
         element: <Products />
