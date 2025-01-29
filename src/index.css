@@ -6,3 +6,7 @@ header{
 
   background-size: 100%;
 }
+
+.loader{
+  min-height: 100vh;
+}

@@ -17,7 +17,7 @@ console.log();
 
     <Row className='my-5'>
     
-        {data.data.categories.map(category =>  <Category img={category.image.secure_url} key={category._id}/>)}
+        {data.data.categories.map(category =>  <Category id={category._id} img={category.image.secure_url} key={category._id}/>)}
         
     </Row>
     </Container>
