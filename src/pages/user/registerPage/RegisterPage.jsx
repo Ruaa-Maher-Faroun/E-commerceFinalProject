@@ -67,7 +67,7 @@ export default function RegisterPage() {
       </h2>
       <p className='text-center my-5'>
 
-      Already have an account? <Link to='/login'>
+      Already have an account? <Link to='/auth/login'>
       Log in 
       </Link>
       instead! Page
