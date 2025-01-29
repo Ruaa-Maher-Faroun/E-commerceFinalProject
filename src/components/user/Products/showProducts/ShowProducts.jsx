@@ -1,6 +1,6 @@
 import React from 'react'
-import useFetch from '../../../customHooks/useFetch'
-import Loader from '../loader/Loader';
+import useFetch from '../../../../customHooks/useFetch'
+import Loader from '../../Loader/Loader';
 import Product from '../product/Product';
 import { Container, Row } from 'react-bootstrap';
 

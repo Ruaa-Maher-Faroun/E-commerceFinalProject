@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
-import logo from "../../../assets/BOTIGA.svg";
+import logo from "../../../../assets/BOTIGA.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faMagnifyingGlass,faUser } from '@fortawesome/free-solid-svg-icons';
 

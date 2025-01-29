@@ -2,6 +2,7 @@ import React from 'react'
 import { Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 export default function Product({product}) {
     console.log(product);
@@ -13,7 +14,7 @@ export default function Product({product}) {
       <Card.Body>
         <Card.Title>{product.name}</Card.Title>
         <Card.Text>{product.price}</Card.Text>
-        <Button variant="primary">Details</Button>
+        <Link to={`/product/${product._id}`} className="btn btn-primary">Details</Link>
       </Card.Body>
     </Card>
     </Col>

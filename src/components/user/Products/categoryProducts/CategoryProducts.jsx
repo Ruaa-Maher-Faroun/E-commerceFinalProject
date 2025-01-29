@@ -1,8 +1,8 @@
 import React from 'react'
-import useFetch from '../../../customHooks/useFetch';
-import Loader from '../loader/Loader';
+import useFetch from '../../../../customHooks/useFetch';
+import Loader from '../../Loader/Loader';
 import {  useParams } from 'react-router-dom'
-import Product from '../product/Product';
+import Product from '../../Products/product/Product';
 import { Container, Row } from 'react-bootstrap';
 
 export default function CategoryProducts() {

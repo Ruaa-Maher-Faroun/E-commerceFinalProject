@@ -7,7 +7,7 @@ export default function Category({img,id}) {
 
   return (
     <Col>
-    <Link to={`category/${id}`}>
+    <Link to={`${id}`}>
        <img src={img} alt="" className={style.colImg} />
     </Link>
     </Col>
