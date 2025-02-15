@@ -1,0 +1,26 @@
+.cardHeight {
+    height:545px;
+    border: none;
+
+}
+.bgBody {
+    background: #edf4f3;
+}
+.productHeading {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 18px;
+}
+.btnAddtoCart{
+    transition: background-color 0.5s;
+    border: none;
+    border-radius: 0;
+    background-color: black;
+}
+.btnAddtoCart:hover{
+    background-color: rgb(116, 116, 116);
+}

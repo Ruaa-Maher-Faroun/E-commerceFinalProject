@@ -2,13 +2,12 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import { DevTool } from "@hookform/devtools";
 import axios from 'axios';
 import { Bounce, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
-
+import style from "./auth.module.css";
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState(null);
@@ -61,27 +60,30 @@ export default function RegisterPage() {
   }
   }
   return (
-    <>
-    <Container>
-      <h2 className='text-center my-5'>Create New Account
+    <section className={`registerPage ${style.containerSize}`}>
+    <Container className=" d-flex align-items-center justify-content-center my-5 h-100">
+      <div className={`${style.box} d-flex align-items-center justify-content-center my-5 `}>
+
+      <div className="p-5 d-flex  flex-column h-100 w-100">
+
+      <h2>Create New Account
       </h2>
-      <p className='text-center my-5'>
+      <p>
 
-      Already have an account? <Link to='/auth/login'>
-      Log in 
+      Already have an account? <Link className={`${style.linksStyle}`} to='/auth/login'>
+      Log in
       </Link>
-      instead! Page
+      &nbsp;instead! Page
       </p>
-      <Row className='justify-content-center'>
-
-      <Form onSubmit={handleSubmit(registerUser)} className='col-6'>
+      
+      <Form onSubmit={handleSubmit(registerUser)} className='w-100'>
         {serverError ?? <div className='text-danger'>{serverError}</div>}
         <FloatingLabel
           controlId="floatingEmail"
           label="Email address"
-          className="my-3"
+          className="my-3 w-100"
           >
-          <Form.Control type="email" placeholder="" {...register("email",{required:"email is required"})}/>
+          <Form.Control type="email" placeholder=""  {...register("email",{required:"email is required"})}/>
         {errors.email?<div className=' text-danger'>{errors.email.message}</div>:null}
         </FloatingLabel>
 
@@ -94,11 +96,13 @@ export default function RegisterPage() {
           <Form.Control type="password" placeholder="" {...register("password",{required:"password is required"})} />
         {errors.password?<div className=' text-danger'>{errors.password.message}</div>:null}
         </FloatingLabel>
-        <Button variant="primary" type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Register"}</Button>
+        <Button className={`${style.btnColor}`} type="submit"  disabled={isLoading}>{isLoading ? "Loading..." : "Register"}</Button>
           
       </Form>
-            </Row>
-          </Container>
-    </>
+          
+      </div>
+      </div>
+      </Container>
+    </section>
   )
 }

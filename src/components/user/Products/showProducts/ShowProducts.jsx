@@ -5,7 +5,7 @@ import Product from '../product/Product';
 import { Container, Row } from 'react-bootstrap';
 
 export default function ShowProducts() {
-  const {error,data,isLoading} = useFetch("https://ecommerce-node4.onrender.com/products?limit=10");
+  const {error,data,isLoading} = useFetch("https://ecommerce-node4.onrender.com/products?page=1&limit=12");
  
 
   if(isLoading){
@@ -15,7 +15,7 @@ export default function ShowProducts() {
     <>
     <Container>
 
-    <Row className='my-5'>
+    <Row className='my-5 justify-content-start'>
       {data.data.products.map(product =>  <Product product={product} key={product._id}/>)}
     </Row>
     </Container>

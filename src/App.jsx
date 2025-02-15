@@ -12,6 +12,7 @@ import Products from './pages/user/products/Products'
 import CategoryProducts from './components/user/Products/categoryProducts/CategoryProducts'
 import ShowCategories from './components/user/Categories/showCategories/ShowCategories'
 import ProductDetails from './components/user/Products/productDetails/ProductDetails'
+import ResetPassword from './pages/user/resetPassword/ResetPassword'
 
 export default function App() {
   const router = createBrowserRouter([
@@ -26,6 +27,10 @@ export default function App() {
         {
         path:'login',
         element: <LoginPage />
+      },
+        {
+        path:'reset-password',
+        element: <ResetPassword />
       },
       ]
     },
@@ -64,7 +69,7 @@ export default function App() {
   return (
    
     <>
-     <ToastContainer />
+     {/* <ToastContainer /> */}
        <RouterProvider router={router} />
      </>
   )

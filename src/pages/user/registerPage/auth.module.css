@@ -1,0 +1,57 @@
+ .containerSize{ 
+    height: 100vh;
+    background: url('../../../assets/loginBG.jpg') no-repeat;
+background-attachment: fixed;
+    background-size:cover;
+}
+
+.btnColor{
+    background-color: #495c72;
+    border: none;
+}
+
+.linksStyle{
+    font-size: 1.3rem;
+    color: rgb(6, 6, 127);
+    font-weight: 500;
+}
+
+.box {
+    width:470px;
+    min-height: 490px;
+    border-radius: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2); /* لون خلفية شبه شفاف */
+    position: relative; 
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(-8px); /* تأثير الضبابية */
+    -webkit-backdrop-filter: blur(-8px); /* دعم لمتصفحات WebKit */
+    overflow: hidden;
+}
+
+.box::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 00;
+    /* z-index: -1; */
+    /* box-shadow: inset 0 0 2000px rgba(255,255,255,0.5); */
+    backdrop-filter: blur(-8px);
+    -webkit-backdrop-filter: blur(-8px);
+    z-index: -1;
+    margin: -20px;
+
+}
+/* 
+width:470px;
+min-height: 490px;
+border-radius: 15px;
+padding: 15px;
+background-color: lightblue;
+backdrop-filter: blur(10px);
+box-shadow: 4px 4px 5px #333; 
+*//*
+}
+ */

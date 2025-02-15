@@ -1,0 +1,34 @@
+.nav {
+    background-color: #edf4f3;
+}
+.nav *{
+    color:#495c72;
+    font-weight: 500;
+}
+.imgWidth{
+    width: 120px;
+    height: 27px;
+}
+
+.link{
+    position: relative;
+  }
+  .link:hover {
+    color: #334558;
+  }
+  .link::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    height: 2px;
+    /* background: #495c72; */
+    background: #334558;;
+    transition: width 0.5s ease;
+    border-radius: 15px;
+    width: 0;
+  }
+  .link:hover::before{
+   width: 40px;
+  }
+  

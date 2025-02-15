@@ -1,0 +1,29 @@
+.bgColor {
+    background-color: #edf4f3;
+}
+.bgColor *{
+    color:#495c72;
+    font-weight: 500;
+}
+.link{
+    position: relative;
+  }
+  .link:hover {
+    color: #334558;
+  }
+  .link::before{
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    height: 2px;
+    /* background: #495c72; */
+    background: #334558;;
+    transition: width 0.5s ease;
+    border-radius: 15px;
+    width: 0;
+  }
+  .link:hover::before{
+   width: 50px;
+  }
+  

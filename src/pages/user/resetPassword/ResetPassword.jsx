@@ -9,8 +9,8 @@ import axios from 'axios';
 import { Bounce, toast } from 'react-toastify';
 import {  Link, useNavigate } from 'react-router-dom';
 import style from "../registerPage/auth.module.css";
-export default function LoginPage() {
-
+export default function ResetPassword() {
+    
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState(null);
   const navigate = useNavigate();
@@ -63,14 +63,14 @@ export default function LoginPage() {
   }
   }
   return (
-    <section className={`loginPage ${style.containerSize}`}>
+    <section className={`resetPassword ${style.containerSize}`}>
     <Container className=" d-flex align-items-center justify-content-center my-5 h-100">
           <div className={`${style.box} d-flex align-items-center justify-content-center my-5 `}>
       
           <div className="p-5 d-flex  flex-column h-100 w-100">
 
-      <h2>Login into your account</h2>
-     
+      <h2 className='mb-3'>Lost password</h2>
+     <p>Lost your password? Please enter your email address. You will receive a link to create a new password via email.</p>
 
       <Form onSubmit={handleSubmit(loginUser)}  className='w-100'>
         {serverError ?? <div className='text-danger'>{serverError}</div>}
@@ -85,20 +85,14 @@ export default function LoginPage() {
 
        
 
-        <FloatingLabel controlId="floatingPassword" label="Password" className="my-3">
-          <Form.Control type="password" placeholder="" {...register("password",{required:"password is required"})} />
-        {errors.password?<div className=' text-danger'>{errors.password.message}</div>:null}
-        </FloatingLabel>
-      <span>Remember me</span>
-        <Button className={`${style.btnColor}`} type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</Button>
+       
+        <Button className={`${style.btnColor}`} type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Reset Password"}</Button>
          
 
       </Form>
-      <Link to={"/auth/reset-password"}>Lost Your Password?</Link>
             </div>
             </div>
           </Container>
     </section>
   )
 }
-
