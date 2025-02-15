@@ -10,7 +10,7 @@ export default function useFetch(url) {
     try{
         const data = await axios.get(url);
         setData(data);
-        
+        setError(null);
         
     } catch(error){
         setError(error)
