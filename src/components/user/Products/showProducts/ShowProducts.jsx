@@ -5,7 +5,7 @@ import Product from '../product/Product';
 import { Container, Row } from 'react-bootstrap';
 
 export default function ShowProducts() {
-  const {error,data,isLoading} = useFetch("https://ecommerce-node4.onrender.com/products?page=1&limit=12");
+  const {error,data,isLoading} = useFetch("https://ecommerce-node4.onrender.com/products?page=1&limit=8");
  
 
   if(isLoading){
