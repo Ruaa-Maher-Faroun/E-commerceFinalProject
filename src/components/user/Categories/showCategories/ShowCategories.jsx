@@ -3,13 +3,13 @@ import useFetch from '../../../../customHooks/useFetch'
 import Category from '../category/Category';
 import {  Container, Row } from 'react-bootstrap';
 import Loader from '../../Loader/Loader';
-
+// 
 export default function ShowCategories() {
   const {error,data,isLoading} = useFetch("https://ecommerce-node4.onrender.com/categories/active");
 console.log();
 
-  if(isLoading){
-    return <Loader />;}
+  // if(isLoading){
+  //   return <Loader />;}
 
   return (
     <>
