@@ -10,7 +10,7 @@ export default function Product({product}) {
     
   return (
     <Col className={`mb-5`}>
-       <Card className={`p-3 ${style.cardHeight} `} style={{ width: '18rem' }}>
+       <Card className={`p-3 mx-auto ${style.cardHeight} `} style={{ width: '18rem' }}>
       <Card.Img variant="top" src={product.mainImage.secure_url} />
       <Card.Body className={`text-center ${style.bgBody}`}>
         <Card.Title className={`${style.productHeading}`}><ProductsLetters word={product.name} /></Card.Title>

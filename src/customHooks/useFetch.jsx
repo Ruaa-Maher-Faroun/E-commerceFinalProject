@@ -14,7 +14,7 @@ export default function useFetch(url) {
         
     } catch(error){
         setError(error)
-        console.log(error);
+       
 
     }finally{
         setIsLoading(false)
