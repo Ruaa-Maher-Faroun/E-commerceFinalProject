@@ -10,7 +10,9 @@ export default function CategoryProducts() {
     const {error,data,isLoading} = useFetch(`https://ecommerce-node4.onrender.com/products/category/${categoryId}`);
     
     
-    // if(isLoading) return <Loader />
+    if(isLoading) {
+        return "";
+    }
     return (
     <section className='categoryProducts'>
         <Container>

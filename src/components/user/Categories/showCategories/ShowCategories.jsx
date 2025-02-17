@@ -9,6 +9,7 @@ export default function ShowCategories() {
 console.log();
 
   if(isLoading){
+    return "";
     // return <Loader />;
   }
 

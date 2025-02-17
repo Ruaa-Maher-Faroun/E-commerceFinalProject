@@ -10,6 +10,7 @@ export default function ProductDetails() {
     const {productId} = useParams();
     const {error,data,isLoading} =  useFetch(`https://ecommerce-node4.onrender.com/products/${productId}`)
     if (isLoading) {
+        return "";
         // return <Loader />;
     }
   
