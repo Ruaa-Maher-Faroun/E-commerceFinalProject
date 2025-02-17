@@ -1,6 +1,6 @@
 import React from 'react'
 import useFetch from '../../../../customHooks/useFetch'
-import Loader from '../../Loader/Loader';
+// import Loader from '../../Loader/Loader';
 import Product from '../product/Product';
 import { Row } from 'react-bootstrap';
 
@@ -13,7 +13,7 @@ export default function ShowProducts({numberOfProducts}) {
 
 
   if (isLoading) {
-    return <Loader />;
+    // return <Loader />;
   }
 
   if (error) {
