@@ -6,3 +6,7 @@
   min-height: 100vh;
   
 }
+.swal2-confirm.swal2-styled{
+
+  background-color: #59757e;
+}

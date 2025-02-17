@@ -5,9 +5,9 @@ import { useForm } from 'react-hook-form';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Bounce, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import style from "./auth.module.css";
+import Swal from 'sweetalert2';
 export default function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState(null);
@@ -21,32 +21,16 @@ export default function RegisterPage() {
       
       if(response.status === 201){
         navigate("/login");
-        toast.info('Please check your email to confirm your registration', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
+       
     }
     console.log("Done");
     setServerError(null)
   }catch(error){
-    toast.error('Error', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
+   Swal.fire({
+         icon: "error",
+         title: "Oops...",
+         text: error.message
+       })
     if(error.response.status === 409){
     setServerError("Email is already registered");
   }else{

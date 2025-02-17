@@ -6,9 +6,10 @@ import { useForm } from 'react-hook-form';
 import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Bounce, toast } from 'react-toastify';
 import {  Link, useNavigate } from 'react-router-dom';
 import style from "../registerPage/auth.module.css";
+import balloonHeart from "../../../assets/balloon-heart-colored.svg";
+import Swal from 'sweetalert2';
 export default function LoginPage() {
 
   const [isLoading, setIsLoading] = useState(false);
@@ -22,34 +23,29 @@ export default function LoginPage() {
       console.log(response);
       
       if(response.status === 200){
-        localStorage.setItem("userToken",response.data.token)
+        localStorage.setItem("userToken",response.data.token);
         navigate("/");
-        toast.success('Logged in', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
+        console.log(response.data);
+        
+        Swal.fire({
+          title: `Welcome Back ${response.data.user.name}!`,
+          text: "Happy Shopping...",
+          imageUrl: `${balloonHeart}`,
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: "Custom image"
+        });
+       
+       
     }
     console.log("Done");
     setServerError(null)
   }catch(error){
-    toast.error('Error', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
+    Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: error.message
+        })
     if(error.response.status === 409){
     setServerError("Email is already registered");
   }else{
@@ -89,8 +85,19 @@ export default function LoginPage() {
           <Form.Control type="password" placeholder="" {...register("password",{required:"password is required"})} />
         {errors.password?<div className=' text-danger'>{errors.password.message}</div>:null}
         </FloatingLabel>
-      <span>Remember me</span>
-        <Button className={`${style.btnColor}`} type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</Button>
+        
+        <div key={`rememberUser`} className="mb-3">
+          <Form.Check // prettier-ignore
+            type="checkbox"
+            id={`rememberUser`}
+            label={`Remember me`}
+          />
+
+         
+        </div>
+    
+
+        <Button className={`mb-2 ${style.btnColor}`} type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</Button>
          
 
       </Form>

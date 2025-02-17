@@ -19,7 +19,8 @@
     transition: background-color 0.5s;
     border: none;
     border-radius: 0;
-    background-color: black;
+    background-color:   #59757e;
+    ;
 }
 .btnAddtoCart:hover{
     background-color: rgb(116, 116, 116);
