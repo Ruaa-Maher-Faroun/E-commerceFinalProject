@@ -2,35 +2,35 @@ import React from 'react'
 import useFetch from '../../../../customHooks/useFetch'
 // import Loader from '../../Loader/Loader';
 import Product from '../product/Product';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 import ErrorsPage from '../../../../pages/user/errorsPage/ErrorsPage';
+import SortProduct from '../../SortProduct/SortProduct';
 
-export default function ShowProducts({numberOfProducts}) {
-  const { error, data, isLoading } = useFetch("https://ecommerce-node4.onrender.com/products?limit=8");
+export default function ShowProducts() {
+  const { error, data, isLoading } = useFetch("https://ecommerce-node4.onrender.com/products?limit=10");
 
 
 
 
   if (isLoading) {
     return "";
-    // return <Loader />;
   }
 
   if (error) {
     return <ErrorsPage errorMessage={error.message} />
   }
+  console.log(data.data);
+  
   return (
-    <Row className='my-5 justify-content-start'>
-      {data.data.products.map((product,ind) => {
-          if(ind < numberOfProducts){
-          return <Product product={product} key={product._id} />
-        }else{
-          return "";
-        }
-        })}
-    </Row>
+    <>
+      <SortProduct dataNum={data.data.products.length}/>
+      <Row className='my-5 justify-content-start'>
+        {data.data.products.map(product => <Product product={product} key={product._id} />)}
+          
+      </Row>
 
+      </>
 
   )
 }

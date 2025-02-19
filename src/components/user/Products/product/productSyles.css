@@ -1,0 +1,25 @@
+
+.imgSection:hover {
+    cursor: pointer;
+}
+.imgSection:hover .product{
+    opacity: 0.5;
+}
+
+
+.modalBtn {
+    position: absolute;   
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index: 1000;
+    opacity: 0;
+    transition: 0.5s opacity  0.5s background-color;
+}
+
+
+
+.imgSection:hover .modalBtn {
+    z-index: 65262;
+    opacity: 1;
+}

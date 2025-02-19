@@ -1,0 +1,9 @@
+.productPage{
+    min-height: 100vh;
+    margin-bottom: 3rem;;
+}
+
+.productsPageHeight{
+    min-height: 60vh;
+    margin-bottom: 3rem;
+}

@@ -15,13 +15,20 @@
     font-weight: 700;
     font-size: 18px;
 }
-.btnAddtoCart{
+.modalBtn{
     transition: background-color 0.5s;
     border: none;
     border-radius: 0;
-    background-color:   #59757e;
-    ;
+    background-color:   #334349;
 }
-.btnAddtoCart:hover{
+.modalBtn:hover{
     background-color: rgb(116, 116, 116);
+}
+
+.product{
+    transition: 0.5s opacity ;
+}
+.imgSection{
+    position: relative;
+    height: 100%;
 }

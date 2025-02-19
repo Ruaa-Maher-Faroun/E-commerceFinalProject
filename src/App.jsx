@@ -11,6 +11,7 @@ import Products from './pages/user/products/Products'
 import CategoryProducts from './components/user/Products/categoryProducts/CategoryProducts'
 import ProductDetails from './components/user/Products/productDetails/ProductDetails'
 import ResetPassword from './pages/user/resetPassword/ResetPassword'
+import Cart from './pages/user/cart/cart'
 
 export default function App() {
   const router = createBrowserRouter([
@@ -53,11 +54,15 @@ export default function App() {
       },
       {
         path:"/products",
-        element: <Products numberOfProducts={10000}/>,
+        element: <Products numberOfProducts={10000} isPage={true}/>,
       },
       {
         path:"/product/:productId",
         element: <ProductDetails />
+      },
+      {
+        path: 'cart',
+        element: <Cart />
       }
     ]
     }
