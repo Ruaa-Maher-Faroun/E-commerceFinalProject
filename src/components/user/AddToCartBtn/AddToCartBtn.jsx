@@ -4,12 +4,11 @@ import style from "./addtocartbtn.module.css"
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import ErrorsPage from '../../../pages/user/errorsPage/ErrorsPage';
 export default function AddToCartBtn({productId}) {
     const navigate = useNavigate();
     const addToCart = async() => {
         const userToken = localStorage.getItem('userToken');
-        console.log(userToken);
-        
         try{
             const response = await axios.post("https://ecommerce-node4.onrender.com/cart",{
                 productId: productId,
@@ -27,14 +26,19 @@ export default function AddToCartBtn({productId}) {
             }
             
         }catch(error) {
-            Swal.fire({
-                icon: "error",
-                title: "Oops... ",
-                text: `Item not added successfully because of ${error.message}`,
-            });
+            
+            if(error.status == 409){
+                <ErrorsPage errorMessage={"Item not added successfully because it's already in cart"}/>
+                console.log("in erororklnjsdfklchwkj;efhkj;3w");
+                
+          
+                
+            }else if(error.status == 400){
+                <ErrorsPage errorMessage={"You must login first"}/>
+
+            }
             navigate("/cart");
         }finally{
-                // console.log("done");
                 
         }
         

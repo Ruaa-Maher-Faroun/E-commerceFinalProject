@@ -18,7 +18,7 @@ export default function SortProduct({dataNum}) {
                 </Form.Select>
         </div>
     </div>
-    <hr />
+    <hr className='mt-3'/>
     </>
   )
 }

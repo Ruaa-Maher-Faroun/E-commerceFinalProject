@@ -12,6 +12,8 @@ import CategoryProducts from './components/user/Products/categoryProducts/Catego
 import ProductDetails from './components/user/Products/productDetails/ProductDetails'
 import ResetPassword from './pages/user/resetPassword/ResetPassword'
 import Cart from './pages/user/cart/cart'
+import ProtectedRoute from './components/user/ProtectedRoute/ProtectedRoute'
+import CartContextProvider from './context/CartContext'
 
 export default function App() {
   const router = createBrowserRouter([
@@ -62,7 +64,9 @@ export default function App() {
       },
       {
         path: 'cart',
-        element: <Cart />
+        element: <ProtectedRoute>
+                    <Cart />
+                </ProtectedRoute>
       }
     ]
     }
@@ -72,7 +76,10 @@ export default function App() {
   return (
    
     <>
+     <CartContextProvider>
+
        <RouterProvider router={router} />
+     </CartContextProvider>
      </>
   )
 }

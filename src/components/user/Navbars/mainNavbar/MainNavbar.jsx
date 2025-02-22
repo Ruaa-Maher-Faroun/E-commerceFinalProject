@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Button, Col, Container, Nav, Navbar, NavDropdown, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import logo from "../../../../assets/BOTIGA.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import style from "../mainStyle.module.css";
+import { CartContext } from '../../../../context/CartContext';
 export default function MainNavbar() {
+    const {cartCount} = useContext(CartContext);
 
     return (
         <>
@@ -42,7 +44,7 @@ export default function MainNavbar() {
                                 
                                 
                             
-                                <Nav.Link as={Link} to={"/cart"}><FontAwesomeIcon icon={faCartShopping} /></Nav.Link>
+                                <Nav.Link as={Link} to={"/cart"}><FontAwesomeIcon icon={faCartShopping} /> {cartCount}</Nav.Link>
                        
                             </Nav>
                         </Col>

@@ -5,15 +5,9 @@ import Categories from '../../../pages/user/categories/Categories'
 
 export default function FeaturedCategories() {
     return (
-
-
-            <Container className={`text-center ${style.homeSections}`}>
-        
+        <Container className={`text-center ${style.homeSections}`}>
             <h2>Featured Categories</h2>
-            <p>Give your customers insight into your product collection. Select imagery and name that relates to the product category.
-
-            </p>
-
+            <p>Give your customers insight into your product collection. Select imagery and name that relates to the product category.</p>
             <Categories />
         </Container>
 

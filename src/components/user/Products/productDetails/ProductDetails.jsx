@@ -1,17 +1,16 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import useFetch from '../../../../customHooks/useFetch';
-// import Loader from '../../Loader/Loader';
 import { Button, Card } from 'react-bootstrap';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import Loader from '../../Loader/Loader';
 
 export default function ProductDetails() {
     const {productId} = useParams();
-    const {error,data,isLoading} =  useFetch(`https://ecommerce-node4.onrender.com/products/${productId}`)
+    const {error,data,isLoading} =  useFetch(`${import.meta.env.VITE_BURL}/products/${productId}`)
     if (isLoading) {
-        return "";
-        // return <Loader />;
+        return <Loader />;
     }
   
     const product = {...data.data.product};
