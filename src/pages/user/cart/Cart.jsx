@@ -76,10 +76,10 @@ export default function Cart() {
                 }}
             );
          
-            // getCart();
             if(response.status === 200){
+                getCart();
                 console.log(response.data.cart.products);
-                setCart(response.data.cart.products);
+                // setCart(response.data.cart.products);
             }
             console.log(response);
             
