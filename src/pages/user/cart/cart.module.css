@@ -1,0 +1,9 @@
+.removeBtn{
+    color: black;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+}
+.removeBtn:hover{
+opacity: 0.5;
+}

@@ -1,7 +1,7 @@
 
-export default function ProductsLetters({word}) {
-  if(word.length > 24){
-    return word.slice(0, 24) + '...';
+export default function ProductsLetters({word,number}) {
+  if(word.length > number){
+    return word.slice(0, number) + '...';
   }
     return word;
 }

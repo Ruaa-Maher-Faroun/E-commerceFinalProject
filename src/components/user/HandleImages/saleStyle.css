@@ -1,0 +1,10 @@
+.saleBadge{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #000;
+    color:#fff;
+}
+.shownImg{
+    position: relative;
+}

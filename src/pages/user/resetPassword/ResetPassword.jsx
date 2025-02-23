@@ -3,11 +3,11 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Bounce, toast } from 'react-toastify';
-import {  Link, useNavigate } from 'react-router-dom';
+import {   useNavigate } from 'react-router-dom';
 import style from "../registerPage/auth.module.css";
 export default function ResetPassword() {
     
@@ -15,48 +15,33 @@ export default function ResetPassword() {
   const [serverError, setServerError] = useState(null);
   const navigate = useNavigate();
   const {register, handleSubmit,formState:{errors}} = useForm();
-  const loginUser = async (data) => {
+
+
+  const lostPassword = async (data) => {
     setIsLoading(true);
     try{
-      const response = await axios.post("https://ecommerce-node4.onrender.com/auth/signin",data);
-      console.log(response);
+      const response = await axios.patch(`https://ecommerce-node4.onrender.com/auth/forgotPassword`,{
+        email:data.email,
+        password:"111",
+        code:"D7AZ"
+      });
+    //   console.log(response);
       
-      if(response.status === 200){
-        localStorage.setItem("userToken",response.data.token)
-        navigate("/");
-        toast.success('Logged in', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-    }
-    console.log("Done");
-    setServerError(null)
+    //   if(response.status === 200){
+    //     localStorage.setItem("userToken",response.data.token)
+    //     navigate("/");
+  
+    // }
+    // setServerError(null)
   }catch(error){
-    toast.error('Error', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: false,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-      transition: Bounce,
-      });
-    if(error.response.status === 409){
-    setServerError("Email is already registered");
-  }else{
-    setServerError("Server Error");
-    console.log("errro");
+    console.log(error);
     
-  }
+  
+  //   if(error.response.status === 409){
+  //   setServerError("Email is already registered");
+  // }else{
+  //   setServerError("Server Error");
+  // }
 
   }finally{
     setIsLoading(false);
@@ -72,7 +57,7 @@ export default function ResetPassword() {
       <h2 className='mb-3'>Lost password</h2>
      <p>Lost your password? Please enter your email address. You will receive a link to create a new password via email.</p>
 
-      <Form onSubmit={handleSubmit(loginUser)}  className='w-100'>
+      <Form onSubmit={handleSubmit(lostPassword)}  className='w-100'>
         {serverError ?? <div className='text-danger'>{serverError}</div>}
         <FloatingLabel
           controlId="floatingEmail"
@@ -86,7 +71,7 @@ export default function ResetPassword() {
        
 
        
-        <Button className={`${style.btnColor}`} type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Reset Password"}</Button>
+        <Button  className={`${style.btnColor}`} type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Reset Password"}</Button>
          
 
       </Form>

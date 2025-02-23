@@ -1,5 +1,6 @@
 .nav {
     background-color: #edf4f3;
+    z-index: 6565484654;
 }
 .nav *{
     color:#495c72;
@@ -32,3 +33,11 @@
    width: 40px;
   }
   
+
+.profile {
+  background-color: transparent;
+}
+.profile:hover {
+  background-color: #f8f9fa;
+  color: #212529;
+}

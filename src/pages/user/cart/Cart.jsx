@@ -1,15 +1,20 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { Button, Table } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react'
+import { Button, Container, Row, Table } from 'react-bootstrap';
 import ProductsLetters from '../../../components/user/ProductsLetters/ProductsLetters';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import ItemQuantity from '../../../components/user/ItemQuantity/ItemQuantity';
 import Loader from '../../../components/user/Loader/Loader';
 import ErrorsPage from '../errorsPage/ErrorsPage';
 import { useNavigate } from 'react-router-dom';
-
+import style from './cart.module.css';
+import axios from 'axios';
+import { UserContext } from '../../../context/user/UserContext';
+import { CartContext } from '../../../context/user/CartContext';
 export default function Cart() {
+    const {user} = useContext(UserContext);
+    console.log(user);
+    const { cartCount ,setCartCount} = useContext(CartContext);
+  
+    
     const navigate = useNavigate();
     const [cart,setCart] = useState(null);
     const [isLoading,setisLoading] = useState(true);
@@ -18,6 +23,8 @@ export default function Cart() {
     
     const getCart = async () => {
         setisLoading(true);
+        console.log("in");
+        
         
         const userToken = localStorage.getItem('userToken');
         if(!userToken){
@@ -31,6 +38,8 @@ export default function Cart() {
                 }
             });
             setCart(response.data.products);
+            setCart(response.data.products);
+            console.log(response.data.products);
             
             
         }catch(error){
@@ -62,68 +71,93 @@ export default function Cart() {
     } 
    
 
-    const removeItem = async(itemId) => {
+    const removeItem = async (itemId) => {
         const userToken = localStorage.getItem('userToken');
-        console.log(userToken);
-        console.log(typeof itemId);
+        console.log(itemId);
         
         
         try{
-            const response = await axios.patch(`https://ecommerce-node4.onrender.com/cart/removeItem`,
-                {"productId": itemId},
-                { headers:{
+             const response = await axios.patch("https://ecommerce-node4.onrender.com/cart/removeItem",{
+                 productId: itemId
+             },
+             {
+                 headers: {
+                     Authorization: `Tariq__${userToken}`
+                 }
+             });
+             if (response.status === 200){
+                 setCartCount(cartCount-1)
+                 getCart();
+             }
+
+        }catch(error){
+         console.log(error);
+       
+        }            
+    }
+
+    const clearCart = async () =>{
+        const userToken = localStorage.getItem('userToken');
+        
+       try{
+            const response = await axios.patch("https://ecommerce-node4.onrender.com/cart/clear",{},
+            {
+                headers: {
                     Authorization: `Tariq__${userToken}`
-                }}
-            );
-         
-            if(response.status === 200){
+                }
+            });
+            if (response.status === 200){
                 getCart();
-                console.log(response.data.cart.products);
-                // setCart(response.data.cart.products);
+                setCartCount(0)
             }
-            console.log(response);
-            
-            
-            
-    }
-       catch(err) {
-            console.log(err);
-        }
-    }
-  return (
-    <section>
+               
+        
+       }catch(error){
+        console.log(error);
       
-   <Table striped bordered hover>
+       }
+        
+    }
+
+  return (
+    <section className=''>
+        <Container className='content'>
+            <Button variant='danger' onClick={clearCart}>Clear Cart</Button>
+      
+
+      <Row className='d-flex h-100 d-flex align-items-center justify-content-center'>
+
+   <Table  bordered>
       <thead>
         <tr>
-          <th>#</th>
-          <th>Item Name</th>
-          <th>Item Image</th>
-          <th>Item Quantity</th>
-          <th>Item Price</th>
-          <th>Delete</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
         </tr>
       </thead>
       <tbody className='text-center'>
         {cart.map((item,ind)=>{
             return <tr key={item._id}>
-            <td>{ind+1}</td>
-            <td><ProductsLetters word={item.details.name}/></td>
-             <td><img src={item.details.mainImage.secure_url} alt="" className='w-25' /></td>
-             <td><ItemQuantity qty={item.quantity} /></td>
-             <td>{item.details.price}</td>
-             <td><Button onClick={()=>removeItem(item._id)}>
-                 <FontAwesomeIcon icon={faCircleXmark} style={{color:"#d42828"}} />
+            <td><Button className={`${style.removeBtn}`} onClick={()=>removeItem(item.productId)}>
+                    X
                  </Button> 
+                 <img src={item.details.mainImage.secure_url} alt="" className='w-25' />
+                 <ProductsLetters word={item.details.name}/>
                  </td>
+             <td>{item.details.price}</td>
+             <td><ItemQuantity quantity={item.quantity} id={item.productId} stock={item.details.stock} removeItem={removeItem}/></td>
+             <td>{item.details.price}</td>
      
              </tr>
 
-        })}
+})}
 
       </tbody>
     </Table> 
+    </Row>
   
+</Container>
     </section>
   )
 }

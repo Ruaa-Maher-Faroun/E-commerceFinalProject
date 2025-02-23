@@ -13,7 +13,11 @@ import ProductDetails from './components/user/Products/productDetails/ProductDet
 import ResetPassword from './pages/user/resetPassword/ResetPassword'
 import Cart from './pages/user/cart/cart'
 import ProtectedRoute from './components/user/ProtectedRoute/ProtectedRoute'
-import CartContextProvider from './context/CartContext'
+import CartContextProvider from './context/user/CartContext'
+import Profile from './pages/user/profile/Profile'
+import Info from './pages/user/profile/Info'
+import Orders from './pages/user/profile/orders'
+import UserContextProvider from './context/user/UserContext'
 
 export default function App() {
   const router = createBrowserRouter([
@@ -41,7 +45,10 @@ export default function App() {
     },
     {
       path: '/',
-      element: <UserLayout />,
+      element: <UserContextProvider>
+                  <UserLayout />
+              </UserContextProvider>
+              , 
       children:[{
         path:'/',
         element: <Home />
@@ -67,6 +74,20 @@ export default function App() {
         element: <ProtectedRoute>
                     <Cart />
                 </ProtectedRoute>
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
+        children: [
+          {
+            path: 'info',
+            element: <Info />
+          },
+          {
+            path: 'orders',
+            element: <Orders />
+          },
+        ]
       }
     ]
     }
