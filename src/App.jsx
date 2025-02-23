@@ -11,13 +11,13 @@ import Products from './pages/user/products/Products'
 import CategoryProducts from './components/user/Products/categoryProducts/CategoryProducts'
 import ProductDetails from './components/user/Products/productDetails/ProductDetails'
 import ResetPassword from './pages/user/resetPassword/ResetPassword'
-import Cart from './pages/user/cart/cart'
 import ProtectedRoute from './components/user/ProtectedRoute/ProtectedRoute'
 import CartContextProvider from './context/user/CartContext'
 import Profile from './pages/user/profile/Profile'
 import Info from './pages/user/profile/Info'
 import Orders from './pages/user/profile/orders'
 import UserContextProvider from './context/user/UserContext'
+import Cart from './pages/user/cart/cart'
 
 export default function App() {
   const router = createBrowserRouter([
