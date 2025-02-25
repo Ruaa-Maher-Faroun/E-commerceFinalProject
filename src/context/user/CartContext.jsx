@@ -29,12 +29,6 @@ const CartContextProvider = ({children}) => {
         getCart();
     },[])
 
-
-
-  
-    
-   
-   
     return  <CartContext.Provider value={{cartCount, setCartCount}}>
                 {children}
             </CartContext.Provider>

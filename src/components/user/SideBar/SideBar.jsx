@@ -5,7 +5,7 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 
 export default function SideBar() {
   return (
-    <Sidebar className={`${style.sideBar} fixed-left`}>
+    <Sidebar className={`${style.sideBar} h-100 fixed-left`}>
     <Menu>
       <MenuItem component={<Link to="/profile/info" />}>User Information</MenuItem>
       <MenuItem component={<Link to="/profile/orders" />}>Orders History</MenuItem>

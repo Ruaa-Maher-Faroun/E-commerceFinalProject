@@ -4,6 +4,8 @@ import React, { createContext, useEffect, useState } from 'react'
 import ErrorsPage from '../../pages/user/errorsPage/ErrorsPage';
 import Spinner from 'react-bootstrap/Spinner';
 
+
+
 export const UserContext = createContext();
 
 const UserContextProvider = ({ children }) => {

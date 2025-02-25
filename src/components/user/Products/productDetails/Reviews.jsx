@@ -2,16 +2,21 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 import useFetch from '../../../../customHooks/useFetch';
-import Loader from '../../Loader/Loader';
+// import Loader from '../../Loader/Loader';
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
+import Spinner from 'react-bootstrap/Spinner';
 
 export default function Reviews() {
     const { productId } = useParams();
     const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${productId}`)
     if (isLoading) {
-        return <Loader />;
+        return         (<section className="loader d-flex align-items-center justify-content-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            </section>)
     }
 
     if (error) {

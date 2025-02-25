@@ -2,7 +2,7 @@ import React, {  useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import useFetch from '../../../customHooks/useFetch';
 import ErrorsPage from '../../../pages/user/errorsPage/ErrorsPage';
-import Loader from '../Loader/Loader';
+// import Loader from '../Loader/Loader';
 import { Col, Row } from 'react-bootstrap';
 import ProductsLetters from '../ProductsLetters/ProductsLetters';
 import './products.css';
@@ -10,12 +10,17 @@ import HandleImages from '../HandleImages/HandleImages';
 import ProductCategoryInModal from '../ProductCategoryInModal/ProductCategoryInModal';
 import AddToCartBtnModal from '../AddToCartBtn/AddToCartBtnModal';
 import ItemQuantityModal from '../ItemQuantityModal/ItemQuantityModal';
+import Spinner from 'react-bootstrap/Spinner';
 export default function ProductModal(props) {
 
   const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${props.product_id}`)
   const [count, setCount] = useState(1);
   if (isLoading) {
-    return <Loader />
+    return (<section className="loader d-flex align-items-center justify-content-center">
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+        </section>)
   }
   
 
