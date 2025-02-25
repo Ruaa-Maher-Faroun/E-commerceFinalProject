@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { CartContext } from '../../../context/user/CartContext';
-import Loader from '../Loader/Loader';
 
 export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
   const [loading, setLoading] = useState(false);
