@@ -1,9 +1,9 @@
+import Loader from '../../../components/user/Loader/Loader';
 import React from 'react'
 import ShowProducts from '../../../components/user/Products/showProducts/ShowProducts'
 import { Container } from 'react-bootstrap';
 import style from "./productsPage.module.css";
 import ErrorsPage from '../errorsPage/ErrorsPage';
-import Loader from '../../../components/user/Loader/Loader';
 import useFetch from '../../../customHooks/useFetch';
 export default function Products() {
   
