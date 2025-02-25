@@ -3,10 +3,10 @@ import useFetch from '../../../../customHooks/useFetch';
 import {  useParams } from 'react-router-dom'
 import Product from '../../Products/product/Product';
 import { Container, Row } from 'react-bootstrap';
-import Loader from '../../Loader/Loader';
 import ErrorsPage from '../../../../pages/user/errorsPage/ErrorsPage';
 import SortProduct from '../../SortProduct/SortProduct';
 import style from "./categoryProducts.module.css"
+import Loader from '../../Loader/Loader';
 
 export default function CategoryProducts() {
     const {categoryId} = useParams();
