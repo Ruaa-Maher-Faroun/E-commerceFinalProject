@@ -1,3 +1,4 @@
+import Loader from "../../../components/user/Loader/Loader";
 import React, { useContext, useState } from 'react'
 import {  Col, Container, Row } from 'react-bootstrap';
 import ErrorsPage from '../errorsPage/ErrorsPage';
@@ -5,7 +6,6 @@ import { CartContext } from '../../../context/user/CartContext';
 import CartFull from './CartFull';
 import CartEmpty from './CartEmpty';
 import GetCart from './GetCart';
-import Loader from "../../../components/user/Loader/Loader";
 
 
 export default function Cart() {
