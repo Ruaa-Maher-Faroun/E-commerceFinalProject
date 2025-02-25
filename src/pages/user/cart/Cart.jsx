@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import {  Col, Container, Row } from 'react-bootstrap';
 import Loader from '../../../components/user/Loader/Loader';
 import ErrorsPage from '../errorsPage/ErrorsPage';
-import axios from 'axios';
 import { CartContext } from '../../../context/user/CartContext';
 import CartFull from './CartFull';
 import CartEmpty from './CartEmpty';
