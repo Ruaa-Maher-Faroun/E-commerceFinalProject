@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../../context/user/CartContext';
 import axios from 'axios';
-import GetCart from './getCart';
+import GetCart from './GetCart';
 import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import "./tableStyle.css"
