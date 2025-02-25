@@ -3,6 +3,7 @@ import ShowProducts from '../../../components/user/Products/showProducts/ShowPro
 import { Container } from 'react-bootstrap';
 import style from "./productsPage.module.css";
 import ErrorsPage from '../errorsPage/ErrorsPage';
+import Loader from '../../../components/user/Loader/Loader.jsx';
 import Loader from '../../../components/user/Loader/Loader';
 import useFetch from '../../../customHooks/useFetch';
 export default function Products() {
