@@ -13,7 +13,7 @@ export default function ProductCard({product,setModalShow,modalShow}) {
                 <Button onClick={() => setModalShow(true)} className={`${modalShow ? "d-none": ""} modalBtn ${style.modalBtn}`}>
                     QUICK VIEW
                 </Button>
-                <Link to={`product/${product._id}`}>
+                <Link to={`/product/${product._id}`}>
                 <Card.Img variant="top" src={product.mainImage.secure_url} className={`product ${style.product}`}/>
                 </Link>
             </div>

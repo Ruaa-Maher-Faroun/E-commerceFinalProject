@@ -21,18 +21,16 @@ export default function ResetPassword() {
     setIsLoading(true);
     try{
       const response = await axios.patch(`https://ecommerce-node4.onrender.com/auth/forgotPassword`,{
-        email:data.email,
-        password:"111",
-        code:"D7AZ"
-      });
-    //   console.log(response);
+          "email":"academyk74@gmail.com",
+          "password":"111",
+          "code":"D7AZ"
+   });
+      console.log(response);
       
-    //   if(response.status === 200){
-    //     localStorage.setItem("userToken",response.data.token)
-    //     navigate("/");
-  
-    // }
-    // setServerError(null)
+      if(response.status === 200){
+        localStorage.setItem("userToken",response.data.token)
+        navigate("/");
+    }
   }catch(error){
     console.log(error);
     

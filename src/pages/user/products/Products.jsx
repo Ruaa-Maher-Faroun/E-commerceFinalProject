@@ -9,9 +9,6 @@ export default function Products() {
   
   const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products?limit=10`);
 
-
-
-
   if (isLoading) {
     return <Loader />;
   }

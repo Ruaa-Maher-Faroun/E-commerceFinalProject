@@ -11,7 +11,6 @@ export default function Product({product}) {
         <ProductModal
           show={modalShow} product={product} key={product._id} 
           onHide={() => setModalShow(false)}
-
           product_id={product._id}
           />
         <Col className="mb-5">

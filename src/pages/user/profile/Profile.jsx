@@ -11,11 +11,11 @@ export default function Profile() {
   return (
     <section className='content mb-0'>
         <Container fluid className="p-0">
-            <Row className='w-100'>
+            <Row className='w-100 justify-content-between'>
                 <Col md={2} >
                     <SideBar />
                 </Col>
-                <Col md={8}> 
+                <Col md={8} className='m-auto mt-2'> 
                  <Container className='px-5 py-3'>
 
                     <Outlet />

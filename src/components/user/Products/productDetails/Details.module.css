@@ -1,0 +1,15 @@
+.linksStyle{
+    font-size: 1.125rem;
+    text-decoration: none;
+    color: #000;
+    /* padding: 10px; */
+    /* margin-bottom: 0; */
+}
+.active{
+    border-bottom:  2px solid rgba(0,0,0)
+}
+.border{
+    border-bottom: 1px solid gray;
+    height: fit-content;
+    padding: 0;
+}

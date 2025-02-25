@@ -3,7 +3,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import {  Link, useNavigate } from 'react-router-dom';
@@ -35,10 +35,9 @@ export default function LoginPage() {
           imageHeight: 200,
           imageAlt: "Custom image"
         });
-       
-       
+     
     }
-    console.log("Done");
+ 
     setServerError(null)
   }catch(error){
     Swal.fire({
@@ -98,8 +97,7 @@ export default function LoginPage() {
     
 
         <Button className={`mb-2 ${style.btnColor}`} type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</Button>
-         
-
+     
       </Form>
       <Link to={"/auth/reset-password"}>Lost Your Password?</Link>
             </div>

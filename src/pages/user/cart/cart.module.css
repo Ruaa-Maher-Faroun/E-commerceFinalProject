@@ -7,3 +7,28 @@
 .removeBtn:hover{
 opacity: 0.5;
 }
+
+.th{
+    font-weight: 400;
+    font-size: .8125rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cartImg {
+    width: 100px;
+    height: 120px;
+}
+
+.cartBtns{
+    
+    font-weight: 300;
+    font-size: .8125rem;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+.couponForm:focus{
+    box-shadow:none;
+}

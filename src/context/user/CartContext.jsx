@@ -4,6 +4,7 @@ import axios from 'axios';
 export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
     const [cartCount, setCartCount] = useState(0);
+
     const userToken = localStorage.getItem('userToken');
 
 
@@ -13,7 +14,14 @@ const CartContextProvider = ({children}) => {
                     Authorization: `Tariq__${userToken}`
                 }
             });
-            setCartCount(response.data.count);
+            if(response.status === 200) {
+                console.log(response);
+                
+            const counter =response.data.products.reduce((acc, product) => acc + parseInt(product.quantity), 0);
+            setCartCount(counter);
+            // setTotal();
+        }
+            
         
     }
     useEffect( ()=>{

@@ -18,8 +18,12 @@ import Info from './pages/user/profile/Info'
 import Orders from './pages/user/profile/orders'
 import UserContextProvider from './context/user/UserContext'
 import Cart from './pages/user/cart/cart'
+import Reviews from './components/user/Products/productDetails/Reviews'
+import Description from './components/user/Products/productDetails/Description'
+import OrderRequest from './components/user/Orders/OrderRequest'
 
 export default function App() {
+
   const router = createBrowserRouter([
     {
       path: '/auth',
@@ -63,17 +67,32 @@ export default function App() {
       },
       {
         path:"/products",
-        element: <Products numberOfProducts={10000} isPage={true}/>,
+        element: <Products />,
       },
       {
         path:"/product/:productId",
-        element: <ProductDetails />
+        element: <ProductDetails />,
+        children : [{
+            path: '',
+          element: <Description />
+        },
+        {
+          path: 'reviews',
+          element: <Reviews />
+        
+        },],
       },
       {
         path: 'cart',
         element: <ProtectedRoute>
                     <Cart />
-                </ProtectedRoute>
+                </ProtectedRoute>,
+      },
+      {
+        path: 'order',
+        element: <ProtectedRoute>
+                    <OrderRequest />
+                </ProtectedRoute>,
       },
       {
         path: 'profile',
@@ -85,7 +104,8 @@ export default function App() {
           },
           {
             path: 'orders',
-            element: <Orders />
+            element: <Orders />,
+            
           },
         ]
       }
@@ -98,7 +118,6 @@ export default function App() {
    
     <>
      <CartContextProvider>
-
        <RouterProvider router={router} />
      </CartContextProvider>
      </>

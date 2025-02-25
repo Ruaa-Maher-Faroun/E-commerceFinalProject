@@ -30,7 +30,7 @@ export default function MainNavbar() {
                                     <Nav.Link as={Link} className={`${style.link}`} to={"/"}>Home</Nav.Link>
                                     <Nav.Link as={Link} className={`${style.link}`} to={"/categories"}>Categories</Nav.Link>
                                     <Nav.Link as={Link} className={`${style.link}`} to={"/products"}>Shop</Nav.Link>
-                                    <Nav.Link as={Link} className={`${style.link}`} to={"/products"}>Contact</Nav.Link>
+                                    {/* <Nav.Link as={Link} className={`${style.link}`} to={"/products"}>Contact</Nav.Link> */}
 
                                 </Nav>
                             </Navbar.Collapse>
