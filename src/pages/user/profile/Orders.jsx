@@ -5,9 +5,9 @@ import { Button, Container } from 'react-bootstrap';
 import Loader from '../../../components/user/Loader/Loader';
 import ErrorsPage from '../errorsPage/ErrorsPage';
 import Swal from 'sweetalert2';
-import { faHourglassHalf } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Order from './Order';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 export default function Orders() {
   const [orders, setOrders] = useState({});
@@ -18,21 +18,16 @@ export default function Orders() {
   const showProducts = (id) => {
     const order = orders.filter((order) => order._id === id);
     setShowOrder(order[0]);
-    // console.log(products[0].finalPrice);
-    console.log(order[0]);
     
   }
   const getOrders = async () => {
     setLoading(true);
     try {
-
-      console.log("hi");
       const response = await axios.get(`${import.meta.env.VITE_BURL}/order`, {
         headers: {
           Authorization: `Tariq__${localStorage.getItem('userToken')}`
         }
       })
-      // console.log(response.data.orders);
       setOrders(response.data.orders);
       setErrors(null);
     } catch (err) {
@@ -60,7 +55,6 @@ export default function Orders() {
         icon: "success"
       });
     } catch (err) {
-      console.log(err);
       setErrors(err);
     } finally {
       setLoading(false);
@@ -68,13 +62,16 @@ export default function Orders() {
   }
 
   if (loading) {
-    return <Loader />
+    return (<section className="loader d-flex align-items-center justify-content-center">
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+      </section>)
   }
   if (errors) {
     return <ErrorsPage errorMessage={errors.message} />
   }
 
-  // console.log(orders[0].products);
   
   return (
     <section>
