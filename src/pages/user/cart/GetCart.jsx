@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import ErrorsPage from '../errorsPage/ErrorsPage';
 import axios from 'axios';
-import Loader from '../../../components/user/Loader/Loader';
 
 export default function GetCart() {
     const [cart, setCart] = useState(null);
@@ -27,8 +26,6 @@ export default function GetCart() {
                 }
             });
             setCart(response.data.products);
-            console.log(response.data.products);
-
         } catch (error) {
             if (error.status == 400) {
                 setError("You must login first");

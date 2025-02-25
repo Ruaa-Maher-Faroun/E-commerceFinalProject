@@ -1,17 +1,17 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {  Col, Container, Row } from 'react-bootstrap';
 import ErrorsPage from '../errorsPage/ErrorsPage';
 import { CartContext } from '../../../context/user/CartContext';
 import CartFull from './CartFull';
 import CartEmpty from './CartEmpty';
-import GetCart from './getCart';
+import GetCart from './GetCart';
 import Loader from "../../../components/user/Loader/Loader";
 
 
 export default function Cart() {
 
     const [update, setUpdate]  = useState(false); 
-    const { cartCount, setCartCount } = useContext(CartContext); 
+    const { cartCount } = useContext(CartContext); 
     const {cart,getCart,isLoading,error} = GetCart();
     if(update) {
         getCart();
@@ -25,11 +25,6 @@ export default function Cart() {
     if (error) {
         return <ErrorsPage errorMessage={error} isCart={true} />
     }
-
- 
-
-
-console.log(cart);
 
     return (
         <section>
