@@ -3,7 +3,7 @@ import ClearCartBtn from './ClearCartBtn'
 import CartTable from './CartTable'
 import {  Row } from 'react-bootstrap'
 import "./tableStyle.css"
-import OrderSummary from '../../../components/user/Orders/orderSummary'
+import OrderSummary from '../../../components/user/Orders/OrderSummary'
 
 export default function CartFull({ cart, getCart }) {
     const [total, setTotal] = useState(0);
