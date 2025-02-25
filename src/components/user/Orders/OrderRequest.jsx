@@ -2,7 +2,7 @@ import axios from "axios";
 import {  useContext, useEffect, useState } from "react";
 import { Button, Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import GetCart from "../../../pages/user/cart/getCart";
+import GetCart from "../../../pages/user/cart/GetCart";
 import ProductsLetters from "../ProductsLetters/ProductsLetters";
 import ErrorsPage from "../../../pages/user/errorsPage/ErrorsPage";
 import Swal from "sweetalert2";
