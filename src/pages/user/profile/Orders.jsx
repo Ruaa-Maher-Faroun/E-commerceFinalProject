@@ -2,7 +2,7 @@ import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Button, Container } from 'react-bootstrap';
-import Loader from '../../../components/user/Loader/Loader';
+// import Loader from '../../../components/user/Loader/Loader';
 import ErrorsPage from '../errorsPage/ErrorsPage';
 import Swal from 'sweetalert2';
 import Order from './Order';

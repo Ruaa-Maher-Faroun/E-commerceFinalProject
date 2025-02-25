@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import { Bounce, toast } from 'react-toastify';
 import {   useNavigate } from 'react-router-dom';
 import style from "../registerPage/auth.module.css";
 export default function ResetPassword() {
