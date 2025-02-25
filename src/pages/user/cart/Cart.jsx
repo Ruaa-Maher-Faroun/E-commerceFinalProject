@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import {  Col, Container, Row } from 'react-bootstrap';
-import Loader from '../../../components/user/Loader/Loader';
 import ErrorsPage from '../errorsPage/ErrorsPage';
 import { CartContext } from '../../../context/user/CartContext';
 import CartFull from './CartFull';
 import CartEmpty from './CartEmpty';
 import GetCart from './getCart';
+import Loader from "../../../components/user/Loader/Loader";
 
 
 export default function Cart() {
