@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react'
@@ -10,7 +10,9 @@ import {  Link, useNavigate } from 'react-router-dom';
 import style from "../registerPage/auth.module.css";
 import balloonHeart from "../../../assets/balloon-heart-colored.svg";
 import Swal from 'sweetalert2';
+import { UserContext } from '../../../context/user/UserContext';
 export default function LoginPage() {
+  const {setUser} = useContext(UserContext);
 
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState(null);
@@ -24,9 +26,8 @@ export default function LoginPage() {
       
       if(response.status === 200){
         localStorage.setItem("userToken",response.data.token);
+        setUser(response.data.user);
         navigate("/");
-        console.log(response.data);
-        
         Swal.fire({
           title: `Welcome Back ${response.data.user.name}!`,
           text: "Happy Shopping...",

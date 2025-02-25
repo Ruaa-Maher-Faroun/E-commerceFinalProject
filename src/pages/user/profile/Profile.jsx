@@ -5,7 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { UserContext } from '../../../context/user/UserContext';
 
 export default function Profile() {
-    const {user} = useContext(UserContext);
+    const {l} = useContext(UserContext);
     // console.log(user);
     
   return (
