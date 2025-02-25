@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react'
-import Loader from '../../components/user/Loader/Loader';
+// import Loader from '../../components/user/Loader/Loader';
 import ErrorsPage from '../../pages/user/errorsPage/ErrorsPage';
+import Spinner from 'react-bootstrap/Spinner';
 
 export const UserContext = createContext();
 
@@ -42,7 +43,11 @@ const UserContextProvider = ({ children }) => {
     }
 
     if(isLoading) {
-        return <Loader />
+        return (<section className="loader d-flex align-items-center justify-content-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            </section>)
     }
     if(error) {
         return <ErrorsPage errorMessage={error.message}/>
