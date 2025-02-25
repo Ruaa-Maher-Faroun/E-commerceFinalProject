@@ -5,13 +5,9 @@ import {  Row } from 'react-bootstrap'
 import "./tableStyle.css"
 import OrderSummary from '../../../components/user/Orders/orderSummary'
 
-export default function CartFull({ cart, getCart, update, setUpdate }) {
-    const [changes, setChanges] = useState(false);
+export default function CartFull({ cart, getCart }) {
     const [total, setTotal] = useState(0);
 
-    const updateCart = () => {
-        setUpdate(true);
-    }
     useEffect(() => {
         let newTotal = 0;
         cart.forEach((item) => {
@@ -22,7 +18,7 @@ export default function CartFull({ cart, getCart, update, setUpdate }) {
     return (
         <Row className='d-flex justify-content-center w-100 my-5'>
             <ClearCartBtn />
-            <CartTable setTotal={setTotal} total={total} cart={cart} getCart={getCart} update={update} setUpdate={setUpdate} setChanges={setChanges} />
+            <CartTable setTotal={setTotal} total={total} cart={cart} getCart={getCart} />
 
         <OrderSummary total={total} cart={cart} getCart={getCart} />
       

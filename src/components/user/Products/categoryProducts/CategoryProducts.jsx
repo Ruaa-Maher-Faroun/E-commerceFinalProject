@@ -6,7 +6,9 @@ import { Container, Row } from 'react-bootstrap';
 import ErrorsPage from '../../../../pages/user/errorsPage/ErrorsPage';
 import SortProduct from '../../SortProduct/SortProduct';
 import style from "./categoryProducts.module.css"
-import Loader from '../../Loader/Loader';
+// import Loader from '../../Loader/Loader';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 export default function CategoryProducts() {
     const {categoryId} = useParams();
@@ -16,7 +18,11 @@ export default function CategoryProducts() {
 
     
     if(isLoading) {
-        return <Loader />
+        return (<section className="loader d-flex align-items-center justify-content-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            </section>)
     }
     
     if(error) {
