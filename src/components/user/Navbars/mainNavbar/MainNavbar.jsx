@@ -9,11 +9,12 @@ import { CartContext } from '../../../../context/user/CartContext';
 import { UserContext } from '../../../../context/user/UserContext';
 export default function MainNavbar() {
     const navigate = useNavigate();
-    const { cartCount } = useContext(CartContext);
+    const { cartCount,setCartCount } = useContext(CartContext);
     const { user,setUser } = useContext(UserContext);
      const handleLogout = () => {
         localStorage.removeItem('userToken');
         setUser(null);
+        setCartCount(0);
         navigate("/auth/login")
         // window.location.reload();
     }

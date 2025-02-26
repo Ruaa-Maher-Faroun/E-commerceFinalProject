@@ -23,7 +23,7 @@ const UserContextProvider = ({ children }) => {
         if (!userToken) {
             setUser(null);
             setIsLoading(false);
-            return;
+           return <></>;
         }
         try {
             const data = await axios.get(`${import.meta.env.VITE_BURL}/user/profile`, {
@@ -34,8 +34,8 @@ const UserContextProvider = ({ children }) => {
             setError(null);
             setUser(data.data.user);
         } catch (error) {
-            setError(error)
-            setUser(null)
+            setError(error);
+            setUser(null);
 
 
         } finally {

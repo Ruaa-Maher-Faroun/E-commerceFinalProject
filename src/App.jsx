@@ -30,17 +30,17 @@ export default function App() {
       element: <AuthLayout />,
       children: [
         {
-        path:'register',
-        element: <RegisterPage />
-      },
+          path: 'register',
+          element: <RegisterPage />
+        },
         {
-        path:'login',
-        element: <LoginPage />
-      },
+          path: 'login',
+          element: <LoginPage />
+        },
         {
-        path:'reset-password',
-        element: <ResetPassword />
-      },
+          path: 'reset-password',
+          element: <ResetPassword />
+        },
       ]
     },
     {
@@ -50,49 +50,51 @@ export default function App() {
     {
       path: '/',
       element: <UserContextProvider>
-                  <UserLayout />
-              </UserContextProvider>
-              , 
-      children:[{
-        path:'/',
+                  <CartContextProvider>
+                    <UserLayout />
+                  </CartContextProvider>
+                </UserContextProvider>
+      ,
+      children: [{
+        path: '/',
         element: <Home />
       },
       {
-        path:"/categories",
+        path: "/categories",
         element: <Categories />
       },
       {
-        path:'/categories/:categoryId',
+        path: '/categories/:categoryId',
         element: <CategoryProducts />
       },
       {
-        path:"/products",
+        path: "/products",
         element: <Products />,
       },
       {
-        path:"/product/:productId",
+        path: "/product/:productId",
         element: <ProductDetails />,
-        children : [{
-            path: '',
+        children: [{
+          path: '',
           element: <Description />
         },
         {
           path: 'reviews',
           element: <Reviews />
-        
+
         },],
       },
       {
         path: 'cart',
         element: <ProtectedRoute>
-                    <Cart />
-                </ProtectedRoute>,
+          <Cart />
+        </ProtectedRoute>,
       },
       {
         path: 'order',
         element: <ProtectedRoute>
-                    <OrderRequest />
-                </ProtectedRoute>,
+          <OrderRequest />
+        </ProtectedRoute>,
       },
       {
         path: 'profile',
@@ -105,21 +107,19 @@ export default function App() {
           {
             path: 'orders',
             element: <Orders />,
-            
+
           },
         ]
       }
-    ]
+      ]
     }
-  
+
   ]
-  ) 
+  )
   return (
-   
+
     <>
-     <CartContextProvider>
-       <RouterProvider router={router} />
-     </CartContextProvider>
+      <RouterProvider router={router} />
      </>
   )
 }

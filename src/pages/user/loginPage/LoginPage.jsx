@@ -10,9 +10,7 @@ import {  Link, useNavigate } from 'react-router-dom';
 import style from "../registerPage/auth.module.css";
 import balloonHeart from "../../../assets/balloon-heart-colored.svg";
 import Swal from 'sweetalert2';
-import { UserContext } from '../../../context/user/UserContext';
 export default function LoginPage() {
-  const {setUser} = useContext(UserContext);
 
   const [isLoading, setIsLoading] = useState(false);
   const [serverError, setServerError] = useState(null);
@@ -22,11 +20,9 @@ export default function LoginPage() {
     setIsLoading(true);
     try{
       const response = await axios.post("https://ecommerce-node4.onrender.com/auth/signin",data);
-      console.log(response);
-      
       if(response.status === 200){
         localStorage.setItem("userToken",response.data.token);
-        setUser(response.data.user);
+        
         navigate("/");
         Swal.fire({
           title: `Welcome Back ${response.data.user.name}!`,
@@ -50,8 +46,6 @@ export default function LoginPage() {
     setServerError("Email is already registered");
   }else{
     setServerError("Server Error");
-    console.log("errro");
-    
   }
 
   }finally{
