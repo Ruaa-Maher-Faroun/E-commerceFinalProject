@@ -1,0 +1,11 @@
+@media (max-width:995px) {
+    .cartBtns{
+        padding: 4px!important;
+    }
+}
+@media (max-width:768px) {
+    .orderCheckout{
+        flex-direction: column;
+        align-items: center;
+    }
+}

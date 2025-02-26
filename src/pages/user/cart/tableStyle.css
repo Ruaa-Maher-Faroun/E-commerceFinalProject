@@ -34,3 +34,34 @@ td {
     font-size: 1.5rem;
 
 }
+
+@media (max-width: 950px) {
+        .tableSize{
+            width:100%;
+        }
+        .tableSize td {
+            padding: 0!important;
+            /* width: fit-content;
+            height: fit-content; */
+        }
+        .name{
+            flex-direction: column;
+        }
+        .title{
+            text-align: center;
+        }
+        .orderSize{
+            width: 100%;
+      }
+      .btnQty{
+        padding: 5px!important;
+    }
+}
+@media (max-width: 550px) {
+        .pricetable{
+            display: none;
+        }
+    
+    
+     
+}

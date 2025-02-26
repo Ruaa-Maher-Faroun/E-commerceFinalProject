@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import { CartContext } from '../../../context/user/CartContext';
-
+import "../../../pages/user/cart/tableStyle.css"
 export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
   const [loading, setLoading] = useState(false);
   const [qty, setQty] = useState(product.quantity);
@@ -48,7 +48,6 @@ export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
     } catch (error) {
 
       setError(error);
-      console.log(error);
       
 
     } finally {
@@ -116,14 +115,16 @@ export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
         <>
           <td>
             <>
-              <Button variant='light' onClick={decrement} disabled={qty <= 0 || loading}>-</Button>
-              {qty}
-              <Button variant='light' onClick={increment} disabled={qty >= product.details.stock || loading}>+</Button>
+              <Button variant='secondary me-2 btnQty' onClick={decrement} disabled={qty <= 0 || loading}>-</Button>
+              <span className='fw-bold'>
+                {qty}
+                </span>
+              <Button variant='secondary ms-2 btnQty' onClick={increment} disabled={qty >= product.details.stock || loading}>+</Button>
               {qty >= product.details.stock ? <span>More than stock</span> : ""}
             </>
           </td>
           <td>
-            {qty * product.details.finalPrice}
+            ${qty * product.details.finalPrice}
           </td>
         </>
       }

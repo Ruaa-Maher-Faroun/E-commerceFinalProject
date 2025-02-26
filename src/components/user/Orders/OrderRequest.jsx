@@ -8,7 +8,7 @@ import ErrorsPage from "../../../pages/user/errorsPage/ErrorsPage";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../../context/user/CartContext";
-
+import "./orderCheckout.css"
 // import OrderRequest from './OrderRequest';
 
 
@@ -65,8 +65,8 @@ export default function OrderRequest() {
                 <h1 className="text-center w-100">Checkout</h1>
                 <div className="order w-100 p-0 my-5 d-flex align-items-start">
                 <Row className="w-100 justify-content-between">             
-                <Form onSubmit={handleSubmit(placeOrder)} className="w-100 d-flex justify-content-between">
-                <Col md={6}>
+                <Form onSubmit={handleSubmit(placeOrder)} className="w-100 orderCheckout d-flex px-0 justify-content-between">
+                <Col  xs="11" md="6" lg="6" xl="6">
                  <div className="d-flex justify-content-between">
                      <FloatingLabel
                          controlId="floatingFName"
@@ -110,10 +110,10 @@ export default function OrderRequest() {
             <Form.Group controlId="exampleForm.ControlInput1">
                 <Form.Control {...register("coupon")} className={`style.couponForm border-dark rounded-0 px-4 py-3`} type="text" placeholder="Coupon code" />
             </Form.Group>
-            <Button variant='dark rounded-0 px-4 py-3' className={"style.cartBtns"} >Apply Coupon</Button>
+            <Button variant='dark rounded-0 px-4 py-3' className="cartBtns" >Apply Coupon</Button>
                         </div>   
              </Col>
-            <Col md={5}>
+            <Col  xs="11" md="5" lg="5" xl="5">
                  <div className="bgLight ms-auto p-5">
                      <h2 className='mb-5 orderTitle text-center'>
                         Your Order

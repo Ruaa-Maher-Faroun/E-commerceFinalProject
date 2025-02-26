@@ -10,8 +10,8 @@ export default function HandleImages({isSale,main,sub}) {
     }
     
   return (
-    <Row>
-        <Col md={2} className='allImages'>
+    <Row className='wrap-reverse'>
+        <Col md={12} lg={2} className='allImages'>
             <div className="imges d-flex flex-column">
                  {images.map(img => <img src={img.secure_url}
                  key={img.secure_url}
@@ -22,7 +22,7 @@ export default function HandleImages({isSale,main,sub}) {
                  }
             </div>
         </Col>
-        <Col md={9} className='shownImg'>
+        <Col md={12} lg={9} className='shownImg'>
                  {isSale? <span className='saleBadge px-3 py-1'>Sale!</span>:""}
             <img src={shownImg} alt="product image" className='w-100'/>
         </Col>

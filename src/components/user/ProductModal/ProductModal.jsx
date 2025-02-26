@@ -11,6 +11,7 @@ import ProductCategoryInModal from '../ProductCategoryInModal/ProductCategoryInM
 import AddToCartBtnModal from '../AddToCartBtn/AddToCartBtnModal';
 import ItemQuantityModal from '../ItemQuantityModal/ItemQuantityModal';
 import Spinner from 'react-bootstrap/Spinner';
+import "./products.css"
 export default function ProductModal(props) {
 
   const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${props.product_id}`)
@@ -42,12 +43,12 @@ export default function ProductModal(props) {
       </Modal.Header>
 
       <Modal.Body className='p-3'>
-        <Row className='d-flex flex-nowrap justify-content-start'>
-          <Col className='w-50'>
+        <Row className='d-flex flex-nowrap modalWrap justify-content-start'>
+          <Col className='w-50' sm={12} md={4} lg={5} xl={5}>
           <HandleImages 
           isSale={data.data.product.price !== data.data.product.finalPrice} main={data.data.product.mainImage} sub={data.data.product.subImages} />
           </Col>
-          <Col className=''>
+          <Col className=''  sm={12} md={7} lg={6} xl={5}>
             <div className="product-content d-flex flex-column border-bottom pb-4">
 
               <h3 className='mb-4'>{data.data.product.name}</h3>

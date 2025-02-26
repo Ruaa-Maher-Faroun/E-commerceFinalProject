@@ -77,7 +77,7 @@ export default function Orders() {
     <section>
       <Container>
         <h1>Orders</h1>
-        <Table striped bordered hover>
+        <Table striped bordered hover responsive>
           <thead>
             <tr>
               <th>#</th>

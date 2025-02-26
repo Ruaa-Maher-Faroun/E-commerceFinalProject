@@ -8,3 +8,52 @@
 .shownImg{
     position: relative;
 }
+
+@media (max-width:991px) {
+    .wrap-reverse{
+        flex-direction: column-reverse;
+        align-items: center;
+        gap:10px
+    }
+    .imges{
+        flex-direction: row!important;
+        width: 50px;
+        flex-wrap: wrap;
+        width: 100%!important;
+        /* gap:8px; */
+        justify-content: space-between;
+    }
+    .imges img{
+        width: 50px;
+    }
+    .btns{
+        width: 100%;
+justify-content: space-between;
+gap: 10%
+    }
+    .addToCartBtn .btn {
+        margin: 0 auto;        
+        padding: 17px 15px !important;
+        width: 100% !important;
+    }
+    .addToCartBtn,.qty {
+        width: 40%;
+    }
+    .modalWrap {
+        align-items: center!important;
+        justify-content: center!important;
+        
+        }
+}
+@media (max-width:768px) {
+    .wrap-reverse{
+        flex-direction: column-reverse;
+        gap:10px
+    }
+    .imges{
+        width: 100%!important;
+    }
+    .imges img{
+        /* width: 50px; */
+    }
+}
