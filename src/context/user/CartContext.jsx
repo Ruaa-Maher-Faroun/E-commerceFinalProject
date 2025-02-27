@@ -15,7 +15,7 @@ const CartContextProvider = ({children}) => {
         const userToken = localStorage.getItem('userToken');
         if (!userToken) {
             setCartCount(0);
-            setUser(null);
+            // setUser(null);
             setLoading(false);
            navigate("/auth")
         }else{
