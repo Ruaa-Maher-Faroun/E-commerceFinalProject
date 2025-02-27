@@ -3,6 +3,7 @@ import React, { createContext, useEffect, useState } from 'react'
 // import Loader from '../../components/user/Loader/Loader';
 import ErrorsPage from '../../pages/user/errorsPage/ErrorsPage';
 import Spinner from 'react-bootstrap/Spinner';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -12,6 +13,7 @@ const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getUser();
@@ -23,7 +25,8 @@ const UserContextProvider = ({ children }) => {
         if (!userToken) {
             setUser(null);
             setIsLoading(false);
-        //    navigate("/auth")
+            return;
+        //    navigate("/auth/login");
         }
         try {
             const data = await axios.get(`${import.meta.env.VITE_BURL}/user/profile`, {

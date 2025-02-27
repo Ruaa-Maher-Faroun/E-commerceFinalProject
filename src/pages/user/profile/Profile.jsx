@@ -4,7 +4,11 @@ import { Outlet } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
 import './sideBar.css'
 export default function Profile() {
-    
+    if(!localStorage.getItem('userToken')){
+      console.log("no");
+      
+      return <>No</>
+    }
   return (
     <section className='content  mb-0'>
         <Container fluid className="p-0 ">

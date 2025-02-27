@@ -2,13 +2,14 @@ import React, { createContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import ErrorsPage from '../../pages/user/errorsPage/ErrorsPage';
 import { Spinner } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 export const CartContext = createContext();
 const CartContextProvider = ({children}) => {
     const [cartCount, setCartCount] = useState(0);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    
+    const navigate = useNavigate();
     
     const getCart = async () => {
         setLoading(true);
@@ -17,7 +18,7 @@ const CartContextProvider = ({children}) => {
             setCartCount(0);
             // setUser(null);
             setLoading(false);
-        //    navigate("/auth")
+        //    navigate("/auth/login");
         }else{
             try{
                 const response = await axios.get(`${import.meta.env.VITE_BURL}/cart`,{
