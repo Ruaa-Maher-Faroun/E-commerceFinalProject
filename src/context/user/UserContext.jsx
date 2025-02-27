@@ -17,15 +17,10 @@ const UserContextProvider = ({ children }) => {
         getUser();
     }, [])
     const getUser = async () => {
-        console.log("loading...user");
-
         setIsLoading(true);
         const userToken = localStorage.getItem('userToken');
-        console.log(userToken);
         
         if (!userToken) {
-            console.log("in");
-            
             setUser(null);
             setIsLoading(false);
            navigate("/auth")

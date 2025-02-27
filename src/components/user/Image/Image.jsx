@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Spinner } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
@@ -10,11 +10,10 @@ import { UserContext } from '../../../context/user/UserContext';
 export default function Image() {
     const [load, setLoad] = useState(false);
     const { user } = useContext(UserContext);
-    const [img, setImage] = useState(null);
+    const [img, setImage] = useState(user ?  user.image.secure_url:null);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const hanldeImage = async (data) => {
         setLoad(true);
-        console.log(data);
         const formData = new FormData();
         formData.append('image', data.file[0]);
         try {
@@ -28,14 +27,12 @@ export default function Image() {
                 }
             )
 
-            console.log(resp);
             if (resp.status == 200) {
                 Swal.fire({
                     title: "Good job!",
                     text: "Picutre Updated!",
                     icon: "success"
                 });
-                // const file = سcreateObjectURL(file))
             }
 
         } catch (e) {
@@ -61,18 +58,12 @@ export default function Image() {
             </section>)
     }
     const handleImgChange = (e) => {
-        console.log("in");
         const file = e.target.files[0];
         setImage(URL.createObjectURL(file));
     }
 
 
-    // useEffect(()=>{
-    //     if(user){
-
-    //         setImage(user.image.secure_url);
-    //     }
-    // },[])
+  
     return (
         <Form onSubmit={handleSubmit(hanldeImage)} encType='multipart/form-data'>
             {img ?

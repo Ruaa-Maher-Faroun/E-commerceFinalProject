@@ -15,7 +15,6 @@ import 'swiper/css/autoplay';
 
 export default function Categories() {
   const place = window.location.pathname;
-  console.log(place);
   
   const {error,data,isLoading} = useFetch(`${import.meta.env.VITE_BURL}/categories/active?limit=10`);
 
@@ -33,9 +32,9 @@ export default function Categories() {
 
   return (
     <>
-    <Container className='content '>
+    <Container className={`${place == '/categories' ? "content": ""}`}>
       {place == '/categories' ?  <h1 className='my-5 text-center w-100'>Categories</h1>:""}
-      <Row className='my-5 justify-content-center w-100 align-items-center'>
+      <Row className={`my-5 justify-content-center w-100 align-items-center`}>
     <Swiper
       modules={[Navigation, Pagination,Autoplay]}
       navigation
@@ -49,8 +48,8 @@ export default function Categories() {
       }}
     >
 
-            {data.data.categories.map(category => <SwiperSlide className='mb-5'>
-                          <Category id={category._id} img={category.image.secure_url} key={category._id}/>
+            {data.data.categories.map(category => <SwiperSlide  key={category._id} className='mb-5'>
+                          <Category id={category._id} img={category.image.secure_url} />
 
                 </SwiperSlide> 
                           )}  

@@ -22,7 +22,6 @@ export default function OrderRequest() {
     const {cart} = GetCart();
     useEffect(() => {
         if(cart){
-            console.log(cart);
             const sum = cart.reduce((acc,element) => (element.details.finalPrice* element.quantity )+ acc,0); 
             setTotal(sum);
         

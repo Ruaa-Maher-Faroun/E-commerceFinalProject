@@ -10,8 +10,6 @@ import { CartContext } from '../../../context/user/CartContext';
 
 export default function AddToCartBtn({ productId }) {
     const { cartCount, setCartCount,loading } = useContext(CartContext);
-    console.log(cartCount);
-    
 
     const [isAdding, setIsAdding] = useState(false);
     const [error, setError] = useState(null);

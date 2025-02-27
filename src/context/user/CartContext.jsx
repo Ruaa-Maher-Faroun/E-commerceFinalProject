@@ -15,9 +15,9 @@ const CartContextProvider = ({children}) => {
         const userToken = localStorage.getItem('userToken');
         if (!userToken) {
             setCartCount(0);
-            // setUser(null);
+            setUser(null);
             setLoading(false);
-        //    navigate("/auth")
+           navigate("/auth")
         }else{
             try{
                 const response = await axios.get(`${import.meta.env.VITE_BURL}/cart`,{
@@ -25,12 +25,10 @@ const CartContextProvider = ({children}) => {
                         Authorization: `Tariq__${userToken}`
                     }
                 });
-                console.log(response);
                 
                 if(response.status === 200) {
                     const counter = response.data.products.reduce((acc, product) => acc + parseInt(product.quantity), 0);
                     setCartCount(counter);
-                   console.log(counter);
                 }
             }catch(err){
                 setCartCount(0);

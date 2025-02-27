@@ -42,7 +42,6 @@ export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
           Authorization: `Tariq__${localStorage.getItem('userToken')}`
         }
       });
-      console.log(response);
 
 
     } catch (error) {
@@ -64,11 +63,9 @@ export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
           Authorization: `Tariq__${localStorage.getItem('userToken')}`
         }
       });
-      console.log(response);
 
     } catch (error) {
       setError(error);
-      console.log(error);
 
 
     } finally {
