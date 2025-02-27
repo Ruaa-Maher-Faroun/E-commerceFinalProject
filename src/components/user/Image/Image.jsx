@@ -35,8 +35,7 @@ export default function Image() {
                     text: "Picutre Updated!",
                     icon: "success"
                 });
-                // const file = e.target.files[0];
-                // setImage(URL.createObjectURL(file))
+                // const file = سcreateObjectURL(file))
             }
 
         } catch (e) {

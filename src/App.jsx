@@ -23,13 +23,16 @@ import Description from './components/user/Products/productDetails/Description'
 import OrderRequest from './components/user/Orders/OrderRequest'
 import SetCode from './pages/user/resetPassword/SetCode'
 import Image from './components/user/Image/Image'
+import ProtectedAuthRoute from './components/user/ProtectedRoute/ProtectedAuthRoute'
 
 export default function App() {
 
   const router = createBrowserRouter([
     {
       path: '/auth',
-      element: <AuthLayout />,
+      element: <ProtectedAuthRoute>
+        <AuthLayout />
+      </ProtectedAuthRoute>,
       children: [
         {
           path: 'register',
