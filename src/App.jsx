@@ -22,6 +22,7 @@ import Reviews from './components/user/Products/productDetails/Reviews'
 import Description from './components/user/Products/productDetails/Description'
 import OrderRequest from './components/user/Orders/OrderRequest'
 import SetCode from './pages/user/resetPassword/SetCode'
+import Image from './components/user/Image/Image'
 
 export default function App() {
 
@@ -117,6 +118,13 @@ export default function App() {
             path: 'orders',
             element: <ProtectedRoute>
               <Orders />,
+              </ProtectedRoute>
+
+          },
+          {
+            path: 'image',
+            element: <ProtectedRoute>
+              <Image />
               </ProtectedRoute>
 
           },

@@ -16,6 +16,7 @@ export default function SideBar() {
     <Menu>
       <MenuItem component={<Link to="/profile/info" />}>User Information</MenuItem>
       <MenuItem component={<Link to="/profile/orders" />}>Orders History</MenuItem>
+      <MenuItem component={<Link to="/profile/image" />}>Image</MenuItem>
     </Menu>
   </Sidebar>
   )

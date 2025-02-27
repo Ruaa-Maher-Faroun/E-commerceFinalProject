@@ -4,6 +4,8 @@ import { Container } from 'react-bootstrap';
 
 export default function Info() {
     const {user} = useContext(UserContext);
+    console.log(user);
+    
   return (
     <>
         <h1>Info</h1>
