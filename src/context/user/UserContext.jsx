@@ -23,7 +23,7 @@ const UserContextProvider = ({ children }) => {
         if (!userToken) {
             setUser(null);
             setIsLoading(false);
-           navigate("/auth")
+        //    navigate("/auth")
         }
         try {
             const data = await axios.get(`${import.meta.env.VITE_BURL}/user/profile`, {
