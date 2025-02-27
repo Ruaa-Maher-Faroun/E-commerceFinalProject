@@ -17,7 +17,7 @@ const CartContextProvider = ({children}) => {
             setCartCount(0);
             // setUser(null);
             setLoading(false);
-           navigate("/auth")
+        //    navigate("/auth")
         }else{
             try{
                 const response = await axios.get(`${import.meta.env.VITE_BURL}/cart`,{
