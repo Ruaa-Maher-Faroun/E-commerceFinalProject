@@ -17,13 +17,18 @@ const UserContextProvider = ({ children }) => {
         getUser();
     }, [])
     const getUser = async () => {
+        console.log("loading...user");
 
         setIsLoading(true);
         const userToken = localStorage.getItem('userToken');
+        console.log(userToken);
+        
         if (!userToken) {
+            console.log("in");
+            
             setUser(null);
             setIsLoading(false);
-           return <></>;
+           navigate("/auth")
         }
         try {
             const data = await axios.get(`${import.meta.env.VITE_BURL}/user/profile`, {
@@ -56,7 +61,7 @@ const UserContextProvider = ({ children }) => {
     }
 
 
-    return <UserContext.Provider value={{ user, setUser }}>
+    return <UserContext.Provider value={{ user, setUser, isLoading }}>
         {children}
     </UserContext.Provider>
 };

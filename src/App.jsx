@@ -21,6 +21,7 @@ import Cart from './pages/user/cart/Cart'
 import Reviews from './components/user/Products/productDetails/Reviews'
 import Description from './components/user/Products/productDetails/Description'
 import OrderRequest from './components/user/Orders/OrderRequest'
+import SetCode from './pages/user/resetPassword/SetCode'
 
 export default function App() {
 
@@ -41,6 +42,10 @@ export default function App() {
           path: 'reset-password',
           element: <ResetPassword />
         },
+        {
+          path: 'setCode',
+          element: <SetCode />
+        },
       ]
     },
     {
@@ -50,9 +55,9 @@ export default function App() {
     {
       path: '/',
       element: <UserContextProvider>
-                  <CartContextProvider>
+                    <CartContextProvider>
                     <UserLayout />
-                  </CartContextProvider>
+                    </CartContextProvider>
                 </UserContextProvider>
       ,
       children: [{
@@ -98,15 +103,21 @@ export default function App() {
       },
       {
         path: 'profile',
-        element: <Profile />,
+        element: <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>,
         children: [
           {
             path: 'info',
-            element: <Info />
+            element: <ProtectedRoute>
+                      <Info />
+                    </ProtectedRoute>
           },
           {
             path: 'orders',
-            element: <Orders />,
+            element: <ProtectedRoute>
+              <Orders />,
+              </ProtectedRoute>
 
           },
         ]
@@ -118,8 +129,10 @@ export default function App() {
   )
   return (
 
-    <>
-      <RouterProvider router={router} />
+    <>      
+        <>      
+        <RouterProvider router={router} />
+        </>
      </>
   )
 }

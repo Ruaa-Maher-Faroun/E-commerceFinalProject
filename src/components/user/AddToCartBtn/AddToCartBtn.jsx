@@ -9,24 +9,37 @@ import { CartContext } from '../../../context/user/CartContext';
 
 
 export default function AddToCartBtn({ productId }) {
-    const { cartCount, setCartCount } = useContext(CartContext);
+    const { cartCount, setCartCount,loading } = useContext(CartContext);
+    console.log(cartCount);
+    
 
     const [isAdding, setIsAdding] = useState(false);
     const [error, setError] = useState(null);
     const addToCart = async () => {
         setIsAdding(true);
         const userToken = localStorage.getItem('userToken');
-        try {
-            const response = await axios.post("https://ecommerce-node4.onrender.com/cart", {
-                productId: productId,
-            }, {
-                headers: {
-                    Authorization: `Tariq__${userToken}`
-                }
+        if(!userToken) {
+            setIsAdding(false);
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You must login first",
             });
+        
+            
+        }else{
+
+            try {
+                const response = await axios.post("https://ecommerce-node4.onrender.com/cart", {
+                    productId: productId,
+                }, {
+                    headers: {
+                        Authorization: `Tariq__${userToken}`
+                    }
+                });
             if (response.status == 201) {
                 setCartCount(cartCount + 1);
-
+                
                 Swal.fire({
                     title: "Added to cart!",
                     text: "You have added this procust to cart successfully!",
@@ -35,7 +48,7 @@ export default function AddToCartBtn({ productId }) {
             }
             setError(null);
         } catch (error) {
-           
+            
             if (error.status == 409) {
                 const err = {
                     message: "Item not added successfully because it's already in cart",
@@ -52,7 +65,8 @@ export default function AddToCartBtn({ productId }) {
         } finally {
             setIsAdding(false);
         }
-
+    }
+        
     };
     return (
         <>

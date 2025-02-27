@@ -1,12 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import SideBar from '../../../components/user/SideBar/SideBar'
 import { Outlet } from 'react-router-dom'
 import { Col, Container, Row } from 'react-bootstrap'
-import { UserContext } from '../../../context/user/UserContext';
 import './sideBar.css'
 export default function Profile() {
-    const {l} = useContext(UserContext);
-    // console.log(user);
     
   return (
     <section className='content  mb-0'>

@@ -12,7 +12,7 @@ export default function SideBar() {
   
   },[])
   return (
-    <Sidebar className={`${style.sideBar} h-100 fixed-left`} breakpoint={breakpoint} collapsed={width<breakpoint}>
+    <Sidebar  className={`${style.sideBar} h-100 fixed-left`} breakpoint={breakpoint} collapsed={width<breakpoint}>
     <Menu>
       <MenuItem component={<Link to="/profile/info" />}>User Information</MenuItem>
       <MenuItem component={<Link to="/profile/orders" />}>Orders History</MenuItem>
