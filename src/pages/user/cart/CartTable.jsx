@@ -6,6 +6,7 @@ import ProductsLetters from '../../../components/user/ProductsLetters/ProductsLe
 import ItemQuantity from '../../../components/user/ItemQuantity/ItemQuantity';
 import { CartContext } from '../../../context/user/CartContext';
 import "./tableStyle.css"
+import { Link } from 'react-router-dom';
 
 export default function CartTable({cart,getCart,setTotal,total, update, setUpdate, setChanges}) {
     const {cartCount,setCartCount} = useContext(CartContext);
@@ -49,8 +50,9 @@ export default function CartTable({cart,getCart,setTotal,total, update, setUpdat
                             <Button className={`${style.removeBtn} me-2`} onClick={() => removeItem(item.productId)}>X</Button>
                             <img src={item.details.mainImage.secure_url} alt="" className={`${style.cartImg} me-2`} />
                         <p className='title p-0 m-0'>
-
-                            <ProductsLetters number={35} word={item.details.name} />
+                         <Link to={`/product/${item.productId}`}>
+                                <ProductsLetters number={35} word={item.details.name} />
+                            </Link>
                         </p>
                         </td>
                         <td className='pricetable'>

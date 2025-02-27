@@ -25,7 +25,7 @@ export default function Categories() {
     <>
     <Container>
 
-      <Row className='my-5'>
+      <Row className='my-5 justify-content-center w-100 align-items-center'>
             {data.data.categories.map(category =>  <Category id={category._id} img={category.image.secure_url} key={category._id}/>)} 
       </Row>
     </Container>

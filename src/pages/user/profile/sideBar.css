@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .resp{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .changePadding {
+        padding-right: 0!important;
+        padding-left: 0!important;
+    }
+}

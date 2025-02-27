@@ -57,3 +57,15 @@ gap: 10%
         /* width: 50px; */
     }
 }
+
+@media (max-width:768px) {
+    .addToCartBtn,.qty {
+        width: 100%;
+    }    
+}
+
+@media (max-width:580px) {
+    .addToCartBtn,.qty {
+        width: 100%;
+    }    
+}

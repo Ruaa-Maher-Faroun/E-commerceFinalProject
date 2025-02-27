@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Button, Container, Form } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 import useFetch from '../../../../customHooks/useFetch';
 // import Loader from '../../Loader/Loader';
@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faStarHalf } from '@fortawesome/free-solid-svg-icons';
 import Spinner from 'react-bootstrap/Spinner';
+import axios from 'axios';
 
 export default function Reviews() {
     const { productId } = useParams();
@@ -27,10 +28,16 @@ export default function Reviews() {
         });
     }
     const product = { ...data.data.product };
-    console.log(product.reviews);
-
+    const addReview = async () =>{
+        await axios.get
+    }
     return (
         <>
+        <Form>
+                <Button variant='primary mt-5' onClick={addReview}>
+                     Add Review
+                </Button>
+        </Form>
             {product.reviews.map((rev,ind) => <div key={rev._id} className='bg-light p-5 my-5 rounded'>
                 <h6 className='fw-bold fs-5 mb-2'>{rev.createdBy.userName}</h6>
                 <p className='text-secondary mb-2' style={{fontSize:"12px"}}>Purchased At: {new Date(rev.createdAt).toDateString()}</p>

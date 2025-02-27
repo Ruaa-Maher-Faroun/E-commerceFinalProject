@@ -1,0 +1,31 @@
+.navbar-toggler{
+    height: 43px!important;
+    margin-right: 10px!important;
+    width: 56px!important;    
+
+
+}
+.navbar-collapse{
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+@media (max-width:550px) {
+    .wrapped{
+        justify-content: space-between !important;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    .profile-wrapped{
+        margin: 5px auto;
+        justify-content: space-between!important;
+        width: 100%;
+    }
+    .respp{
+        justify-content: flex-end!important;
+        padding-right: 0!important;
+    }
+    .respp a{
+        margin-right: 0!important;
+    }
+}

@@ -7,6 +7,7 @@ import ErrorsPage from '../errorsPage/ErrorsPage';
 import Swal from 'sweetalert2';
 import Order from './Order';
 import Spinner from 'react-bootstrap/Spinner';
+import ProductsLetters from '../../../components/user/ProductsLetters/ProductsLetters';
 
 
 export default function Orders() {
@@ -77,26 +78,27 @@ export default function Orders() {
     <section>
       <Container>
         <h1>Orders</h1>
-        <Table striped bordered hover responsive>
+        <Table  bordered responsive>
           <thead>
             <tr>
-              <th>#</th>
+              <th className='d-none d-lg-table-cell'>#</th>
               <th>Order</th>
-              <th>Number of products</th>
+              <th  className='d-none d-md-table-cell'>Number of products</th>
               <th>Total</th>
-              <th>Date</th>
-              <th>Status</th>
+              <th className='d-none d-lg-table-cell'>Date</th>
+              <th className='d-none d-md-table-cell'>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order, i) => <tr key={order._id}>
-              <td>{i+1}</td>
-              <td><Button onClick={()=>{showProducts(order._id)}}>{order._id}</Button></td>
-              <td className='text-center'>{order.products.length}</td>
+              <td className='d-none d-lg-block'>{i+1}</td>
+              <td><Button onClick={()=>{showProducts(order._id)}}>
+                <ProductsLetters number={5} word={order._id} /></Button></td>
+              <td className='text-center d-none  d-md-table-cell'>{order.products.length}</td>
               <td className='fw-bold'>${order.finalPrice}</td>
-              <td>{new Date(order.createdAt).toDateString()}</td>
-              <td className='text-center'>{order.status}</td>
+              <td className='d-none d-lg-table-cell'>{new Date(order.createdAt).toDateString()}</td>
+              <td className='text-center  d-none  d-md-table-cell'>{order.status}</td>
               <td className='text-center'>
                 {order.status === "cancelled" ? " - " :
                   <Button variant='danger' onClick={() => cancelOrder(order._id)}>Cancel</Button>

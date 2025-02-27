@@ -56,12 +56,7 @@ export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
   }
 
   const incrementRequest = async () => {
-
-    console.log("incre");
-
     try {
-      console.log("in");
-
       const response = await axios.patch(`${import.meta.env.VITE_BURL}/cart/incraseQuantity`, {
         productId: product.productId
       }, {

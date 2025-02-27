@@ -36,7 +36,7 @@ export default function ProductDetails() {
     <Details product={product} />
     <Container className='content w-100'>
         <div className={`${style.border} py-0 d-flex`}>
-            <Link onClick={()=>setActivePage("desc")} className={`${style.linksStyle} d-block ${activePage ==="desc" ? style.active:""} px-4 py-3`} to={"description"}>Description</Link>
+            <Link onClick={()=>setActivePage("desc")} className={`${style.linksStyle} d-block ${activePage ==="desc" ? style.active:""} px-4 py-3`} to={`/product/${product._id}`}>Description</Link>
             <Link onClick={()=>setActivePage("reviews")} className={`${style.linksStyle} ${activePage ==="reviews" ? style.active: ""} d-block  px-4 py-3` } to={"reviews"}>Reviews <span>{product.reviews.length}</span></Link>
 
         </div>

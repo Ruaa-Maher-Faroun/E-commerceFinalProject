@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function Category({img,id}) {
 
   return (
-    <Col>
+    <Col className='text-center'>
     <Link to={`/categories/${id}`}>
        <img src={img} alt="" className={style.colImg} />
     </Link>

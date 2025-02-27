@@ -58,7 +58,7 @@ export default function Details({product})  {
         }
         </p>
         <p className='mb-4'>{desc}</p>
-        <div className="btns d-flex align-items-center">
+        <div className="btns d-flex align-items-center flex-column flex-md-row ">
         <ItemQuantityModal product={product} count={count} setCount={setCount}/>
         <AddToCartBtnModal productId={product._id}/>
         

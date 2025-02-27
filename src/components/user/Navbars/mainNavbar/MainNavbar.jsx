@@ -7,6 +7,7 @@ import { faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-sol
 import style from "../mainStyle.module.css";
 import { CartContext } from '../../../../context/user/CartContext';
 import { UserContext } from '../../../../context/user/UserContext';
+import "./navbar.css"
 export default function MainNavbar() {
     const navigate = useNavigate();
     const { cartCount,setCartCount } = useContext(CartContext);
@@ -23,8 +24,8 @@ export default function MainNavbar() {
         <>
             <Navbar expand="lg" className={`${style.nav} mw-100 p-4 sticky-top`}>
                 <Container className='p-0'>
-                    <Row className='w-100 align-items-center'>
-                        <Col className='d-flex justify-content-start'>
+                    <Row className='w-100 align-items-center wrapped'>
+                        <Col className='d-flex justify-content-start' >
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav" className='flex-grow-0'>
                                 <Nav className="">
@@ -36,21 +37,21 @@ export default function MainNavbar() {
                                 </Nav>
                             </Navbar.Collapse>
                         </Col>
-                        <Col className='d-flex justify-content-center'>
+                        <Col className='d-flex justify-content-center respp'>
                             <Navbar.Brand as={Link} to={"/"}>
                                 <img src={logo} alt="logo" className={`${style.imgWidth}`} />
                             </Navbar.Brand>
                         </Col>
-                        <Col className='d-flex justify-content-end'>
-                            <Nav className="">
-                                <Button variant="link"><FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
+                        <Col className='d-flex justify-content-end p-0' sm={4} md={4} lg={3}>
+                            <Nav className="flex-row  align-items-center flex-nowrap profile-wrapped ">
+                                <Button variant="link me-1"><FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
 
                                 <NavDropdown title={user ? user.userName : "login"} id="basic-nav-dropdown">
                                     {/* <FontAwesomeIcon icon={faUser} /> */}
                                     {user ?
                                     <>
-                                        <NavDropdown.Item as={Link} to={"/profile/info"}>Profile</NavDropdown.Item>
-                                        <NavDropdown.Item className={style.profile} onClick={handleLogout}>Logout</NavDropdown.Item>
+                                        <NavDropdown.Item className=' me-1' as={Link} to={"/profile/info"}>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item className={`${style.profile}`} onClick={handleLogout}>Logout</NavDropdown.Item>
                                     </> :
                                     <>
                                         <NavDropdown.Item as={Link} to={"/auth/login"}>Login</NavDropdown.Item>

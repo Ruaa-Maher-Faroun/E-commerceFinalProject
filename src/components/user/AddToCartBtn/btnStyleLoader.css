@@ -42,3 +42,12 @@
 .ld.running {
     animation-play-state: running !important;
   }
+
+
+  @media (max-width: 768px) {
+    .addToCartBtn{
+      /* width: 100%; */
+      margin-top: 10px;
+    }
+    
+  }
