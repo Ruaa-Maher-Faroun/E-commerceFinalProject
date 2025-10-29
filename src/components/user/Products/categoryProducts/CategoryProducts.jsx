@@ -41,7 +41,7 @@ export default function CategoryProducts() {
                 :
                 <>
                 <SortProduct />
-                {data.data.products.map(product =>  <Product product={product} key={product._id}/>)}
+                {data.data.products ? data.data.products.map(product =>  <Product product={product} key={product._id}/>) : ""}
                 </>
                 }
             </Row>
