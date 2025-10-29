@@ -11,10 +11,10 @@ export default function ClearCartBtn() {
 
     const clearCart = async () => {
         try {
-            const response = await axios.patch("https://ecommerce-node4.onrender.com/cart/clear", {},
+            const response = await axios.patch(`${import.meta.env.VITE_BURL}/Customer/cart/clear`, {},
                 {
                     headers: {
-                        Authorization: `Tariq__${localStorage.getItem('userToken')}`
+                        Authorization: `Bearer ${localStorage.getItem('userToken')}`
                     }
                 });
             if (response.status === 200) {

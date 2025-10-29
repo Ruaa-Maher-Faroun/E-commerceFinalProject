@@ -35,11 +35,11 @@ export default function ItemQuantity({ product, removeItem ,total, setTotal}) {
   }
   const decrementRequest = async () => {
     try {
-      const response = await axios.patch(`${import.meta.env.VITE_BURL}/cart/decraseQuantity`, {
+      const response = await axios.patch(`${import.meta.env.VITE_BURL}/Customer/Cart/decraseQuantity`, {
         productId: product.productId
       }, {
         headers: {
-          Authorization: `Tariq__${localStorage.getItem('userToken')}`
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`
         }
       });
 

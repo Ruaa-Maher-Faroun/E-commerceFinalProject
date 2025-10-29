@@ -28,11 +28,11 @@ export default function AddToCartBtn({ productId }) {
         }else{
 
             try {
-                const response = await axios.post("https://ecommerce-node4.onrender.com/cart", {
+                const response = await axios.post(`${import.meta.env.VITE_BURL}/Customer/Cart`, {
                     productId: productId,
                 }, {
                     headers: {
-                        Authorization: `Tariq__${userToken}`
+                        Authorization: `Bearer ${userToken}`
                     }
                 });
             if (response.status == 201) {

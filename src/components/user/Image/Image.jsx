@@ -19,10 +19,10 @@ export default function Image() {
         try {
 
 
-            const resp = await axios.put(`https://ecommerce-node4.onrender.com/user/update-image`, formData,
+            const resp = await axios.put(`${import.meta.env.VITE_BURL}/user/update-image`, formData,
                 {
                     headers: {
-                        Authorization: `Tariq__${localStorage.getItem('userToken')}`
+                        Authorization: `Bearer ${localStorage.getItem('userToken')}`
                     }
                 }
             )

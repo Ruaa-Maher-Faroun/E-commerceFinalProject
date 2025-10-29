@@ -9,7 +9,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export default function Products() {
   
-  const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products?limit=10`);
+  const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/Customer/products`);
 
   if (isLoading) {
     return    (<section className="loader d-flex align-items-center justify-content-center">

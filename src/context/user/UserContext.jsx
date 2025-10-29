@@ -29,13 +29,14 @@ const UserContextProvider = ({ children }) => {
         //    navigate("/auth/login");
         }
         try {
-            const data = await axios.get(`${import.meta.env.VITE_BURL}/user/profile`, {
-                headers: {
-                    Authorization: `Tariq__${userToken}`
-                }
-            });
+            // const data = await axios.get(`${import.meta.env.VITE_BURL}/user/profile`, {
+                // headers: {
+                //     Authorization: `Bearer ${userToken}`
+                // }
+            // });
             setError(null);
-            setUser(data.data.user);
+            // setUser(data.data.user);
+            setUser("");
         } catch (error) {
             setError(error);
             setUser(null);

@@ -20,9 +20,9 @@ export default function GetCart() {
             navigate('/login')
         }
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BURL}/cart`, {
+            const response = await axios.get(`${import.meta.env.VITE_BURL}/Customer/cart`, {
                 headers: {
-                    Authorization: `Tariq__${userToken}`
+                    Authorization: `bearer ${userToken}`
                 }
             });
             setCart(response.data.products);

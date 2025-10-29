@@ -16,10 +16,15 @@ export default function RegisterPage() {
   const registerUser = async (data) => {
     setIsLoading(true);
     try{
-      const response = await axios.post("https://ecommerce-node4.onrender.com/auth/signup",data);
+      console.log(data);
+      
+      const response = await axios.post(`${import.meta.env.VITE_BURL}/Identity/Account/Register`,data);
       console.log(response);
       
-      if(response.status === 201){
+
+      
+      if(response){
+        //  && response.status === 201){
         navigate("/login");
        
     }
@@ -31,13 +36,14 @@ export default function RegisterPage() {
          title: "Oops...",
          text: error.message
        })
-    if(error.response.status === 409){
-    setServerError("Email is already registered");
-  }else{
+     console.log(error);  
+    // if(error.response.status === 409){
+    // setServerError("Email is already registered");
+  // }else{
     setServerError("Server Error");
     console.log("errro");
     
-  }
+  // }
 
   }finally{
     setIsLoading(false);
@@ -75,6 +81,14 @@ export default function RegisterPage() {
           <Form.Control type="text" placeholder="" {...register("userName",{required:"username is required"})}/>
         {errors.userName?<div className=' text-danger'>{errors.userName.message}</div>:null}
         </FloatingLabel>
+        <FloatingLabel controlId="floatingFullName" label="Full Name" className="my-3">
+          <Form.Control type="text" placeholder="" {...register("fullName",{required:"Full Name is required"})}/>
+        {errors.fullName?<div className=' text-danger'>{errors.fullName.message}</div>:null}
+        </FloatingLabel>
+        <FloatingLabel controlId="floatingPhoneNumber" label="Phone Number" className="my-3">
+          <Form.Control type="text" placeholder="" {...register("phoneNumber",{required:"Phone Number is required"})}/>
+        {errors.phoneNumber?<div className=' text-danger'>{errors.phoneNumber.message}</div>:null}
+        </FloatingLabel>  
 
         <FloatingLabel controlId="floatingPassword" label="Password" className="my-3">
           <Form.Control type="password" placeholder="" {...register("password",{required:"password is required"})} />

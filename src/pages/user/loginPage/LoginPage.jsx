@@ -19,7 +19,7 @@ export default function LoginPage() {
   const loginUser = async (data) => {
     setIsLoading(true);
     try{
-      const response = await axios.post("https://ecommerce-node4.onrender.com/auth/signin",data);
+      const response = await axios.post(`${import.meta.env.VITE_BURL}/identity/account/login`,data);
       if(response.status === 200){
         localStorage.setItem("userToken",response.data.token);
         

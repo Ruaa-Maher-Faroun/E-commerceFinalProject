@@ -12,7 +12,8 @@ import Spinner from 'react-bootstrap/Spinner';
 
 export default function CategoryProducts() {
     const {categoryId} = useParams();
-    const {error,data,isLoading} = useFetch(`${import.meta.env.VITE_BURL}/products/category/${categoryId}`);
+    const {error,data,isLoading} = useFetch(`${import.meta.env.VITE_BURL}/Customer/products`);
+    // category/${categoryId}`);
     
 
 
@@ -36,12 +37,12 @@ export default function CategoryProducts() {
     <section className='categoryProducts'>
         <Container>
             <Row className={`${data.data.products.length === 0 ? style.EmptyPage : "my-5"}`}>
-                {data.data && data.data.products.length === 0 ? 
+                {data.data.products.length === 0 ? 
                 <h1 className='alert alert-info'>There is No products of this category</h1>
                 :
                 <>
                 <SortProduct />
-                {data.data ? data.data.products.map(product =>  <Product product={product} key={product._id}/>) : <div className='alert text-danger'>There is no products yet</div>}
+                {data.data.products ? data.data.products.map(product =>  <Product product={product} key={product._id}/>) : ""}
                 </>
                 }
             </Row>

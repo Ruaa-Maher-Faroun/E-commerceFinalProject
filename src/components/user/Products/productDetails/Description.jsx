@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 export default function Description() {
     const { productId } = useParams();
-    const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${productId}`)
+    const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/Customer/products/${productId}`)
     if (isLoading) {
         return (<section className="loader d-flex align-items-center justify-content-center">
             <Spinner animation="border" role="status">

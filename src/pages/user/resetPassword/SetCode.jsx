@@ -26,7 +26,7 @@ export default function SetCode() {
     
     setIsLoading(true);
     try{
-        const response = await axios.patch(`https://ecommerce-node4.onrender.com/auth/forgotPassword`,{
+        const response = await axios.patch(`${import.meta.env.VITE_BURL}/identity/account/forgotPassword`,{
             email:data.email,
             password:data.password,
             code:data.code,

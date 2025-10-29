@@ -20,12 +20,13 @@ export default function ResetPassword() {
   const lostPassword = async (data) => {
     setIsLoading(true);
     try{
-      const res = await axios.patch('https://ecommerce-node4.onrender.com/auth/sendcode',{
+      const res = await axios.patch(`${import.meta.env.VITE_BURL}/Identity/Account/forget-password`,{
+
           "email":data.email,
       });
            
       if(res.status == 200){
-        navigate("/auth/setCode");
+        navigate("/identity/account/reset-password");
     }
   }catch(error){
     setServerError(error);

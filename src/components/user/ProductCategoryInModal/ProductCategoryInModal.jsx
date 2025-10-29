@@ -11,9 +11,9 @@ export default function ProductCategoryInModal({categoryId}) {
     
     const getCategoryName = async() =>{
         try{
-            const response = await axios.get(`${import.meta.env.VITE_BURL}/categories/${categoryId}`,{
+            const response = await axios.get(`${import.meta.env.VITE_BURL}/Customer/categories/${categoryId}`,{
                 headers:{
-                    Authorization: `Tariq__${localStorage.getItem('userToken')}`,
+                    Authorization: `Bearer ${localStorage.getItem('userToken')}`,
                 }
             })
             if(response.status === 200){

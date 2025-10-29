@@ -21,16 +21,16 @@ const CartContextProvider = ({children}) => {
         //    navigate("/auth/login");
         }else{
             try{
-                const response = await axios.get(`${import.meta.env.VITE_BURL}/cart`,{
-                    headers:{
-                        Authorization: `Tariq__${userToken}`
-                    }
-                });
+                // const response = await axios.get(`${import.meta.env.VITE_BURL}/Customer/cart`,{
+                //     headers:{
+                //         Authorization: `Bearer ${userToken}`
+                //     }
+                // });
                 
-                if(response.status === 200) {
-                    const counter = response.data.products.reduce((acc, product) => acc + parseInt(product.quantity), 0);
-                    setCartCount(counter);
-                }
+                // if(response.status === 200) {
+                //     const counter = response.data.products.reduce((acc, product) => acc + parseInt(product.quantity), 0);
+                //     setCartCount(counter);
+                // }
             }catch(err){
                 setCartCount(0);
                 setError(err);

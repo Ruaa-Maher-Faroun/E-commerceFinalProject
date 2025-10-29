@@ -14,7 +14,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import "./products.css"
 export default function ProductModal(props) {
 
-  const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/products/${props.product_id}`)
+  const { error, data, isLoading } = useFetch(`${import.meta.env.VITE_BURL}/Customer/Products/${props.product_id}`)
   const [count, setCount] = useState(1);
   if (isLoading) {
     return (<section className="loader d-flex align-items-center justify-content-center">

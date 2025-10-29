@@ -13,12 +13,12 @@ export default function CartTable({cart,getCart,setTotal,total, update, setUpdat
     
     const removeItem = async (itemId) => {
         try {
-            const response = await axios.patch("https://ecommerce-node4.onrender.com/cart/removeItem", {
+            const response = await axios.patch(`${import.meta.env.VITE_BURL}/Customer/cart/removeItem`, {
                 productId: itemId
             },
                 {
                     headers: {
-                        Authorization: `Tariq__${localStorage.getItem('userToken')}`
+                        Authorization: `Bearer ${localStorage.getItem('userToken')}`
                     }
                 });
             if (response.status === 200) {
