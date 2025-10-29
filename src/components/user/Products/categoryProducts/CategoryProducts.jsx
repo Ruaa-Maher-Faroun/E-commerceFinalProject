@@ -41,7 +41,7 @@ export default function CategoryProducts() {
                 :
                 <>
                 <SortProduct />
-                {data.data.products ? data.data.products.map(product =>  <Product product={product} key={product._id}/>) : ""}
+                {data.data ? data.data.products.map(product =>  <Product product={product} key={product._id}/>) : <div className='alert text-danger'>There is no products yet</div>
                 </>
                 }
             </Row>
